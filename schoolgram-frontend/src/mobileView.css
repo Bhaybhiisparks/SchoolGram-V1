@@ -1,0 +1,956 @@
+/* COLOR DOCUMENTATION */
+/*
+
+#EA4335 orange
+#FD8D83 primary 5
+#FDA49C primary 4
+#FC766A primary 6
+#D1D0D0 gray1 
+#d1d0d04d grey for inouts like email etc
+ 
+*/
+
+
+*{
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+/* IPHONE AND GALAXY FOLD*/
+/* @media only screen and (max-width: 653px) { */
+    body {
+      background-color: white;
+    }
+
+    .body-div ~ {
+        display: block;
+        height: 100%;
+        width: auto;
+       
+    }
+
+    .space-head{
+        height: 4rem;
+        width: auto;
+        margin: 0;
+        background-color: #FCEFE7;
+
+
+        /* width: 43px;
+        height: 40px; */
+    }
+
+ /***************************** FORM CREATE NEW ACCOUNT *********************/
+
+    .create-form{
+        padding: .5rem;
+    }
+
+    .create-new-account{
+        padding: 1rem;
+        width: auto;
+    }
+
+
+    img.go-back, img.logo{
+        height: 1rem;
+        width: 1rem;
+        padding: .3rem 0;
+        cursor: pointer;
+    }
+
+    img.logo{
+        height: 2rem;
+        width: 2rem;
+    }
+
+    h4.create-text{
+        color: black;
+        padding: .5rem 0;
+        /* font-size: .9rem; */
+    }
+
+    .fname-to-dept{
+        padding: .5rem;
+        display: grid;
+        color: black;
+        outline: none;
+        /* border: 1px solid black; */
+        width: 100%;
+        /* grid-template-rows: repeat(auto-fill, 100px); */
+        /* gap: .5rem; */
+        margin-bottom: -.5rem;
+        grid-template-columns: repeat(auto-fill, 175px); 
+    }
+
+    .fname-to-dept input{
+        background-color: #d1d0d04d ;
+        padding: .5rem;
+        margin-bottom: .5rem;
+        border-color: white;
+        border-radius: .2rem;
+        /* width: 8rem; */
+        width: 86%;
+        outline: none;
+        font-size: 12px;
+    }
+
+    .fname-to-dept .firstname, .fname-to-dept .institution{
+        margin-right: 5.7rem;
+    }
+
+    .fname-to-dept::placeholder{
+        color: black;
+    }
+
+    .email-et-password{
+        padding: .5rem 0;
+        display: flex;
+        flex-flow: column;
+        color: black;
+        outline: none;
+        gap: 1rem;
+        /* grid-template-rows: repeat(auto-fill, 10px);
+        grid-gap: 5rem; */
+
+    }
+
+    .email-et-password input{
+        background-color: #d1d0d04d ;
+        padding: .5rem;
+        border-color: white;
+        border-radius: .2rem;
+        outline: none;
+    }
+
+    .warning-box img{
+        width: 13rem;
+        height: 1.4rem;
+        padding: .7rem 0;
+    }
+
+    .check-password-content{
+        display: flex;
+        gap: 2rem;
+        width: 100%;
+        /* border: 2px solid black; */
+    }
+
+    .check-password-content img{
+        width: 4rem;
+        height: 1.5rem;
+        margin-top: -.4rem;
+        border-radius: 2rem;
+
+    }
+
+    .check-terms-and-conditions{
+        display: flex;
+        gap: 1rem;
+        font-size: .7rem;
+        padding: .7rem 0;
+        color: black;
+        font-weight: 500;
+    }
+
+    .create-new-account a:link{
+        /* color: blue; */
+        outline: none;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+    button.create-account-button{
+        padding: 1rem .7rem;
+        border: 1px solid black;
+        border-radius: .3rem;
+        background-color: white;
+        color: #FD8D83;
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+    
+    
+    p.redirect-to-login{
+        font-size: .5rem;
+        padding: .4rem 0;
+        align-self: center;
+        margin-left: 8.5rem;
+        /* border: 1px solid black; */
+        /* font-style: bold; */
+    }
+
+    p.redirect-to-login a{
+        color: blue;
+        font-weight: 500;
+    }
+
+
+
+/******************** CHATS PAGE ***************************/
+.chat-body{
+    /* border: 1px solid green; */
+    padding: 0 .6rem;
+    cursor: pointer;
+}
+
+.chat-body img.contact-photo{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    margin-top: .5rem;
+  }
+
+  .chat-main-body{
+   font: .5rem;
+   /* border: 1px solid red; */
+}
+
+.chat-main-body h4{
+    font-size: 1rem;
+}
+
+.chat-main-body p{
+    font-size: .7rem;
+}
+
+.chat-notiEttime{
+    float: right;
+    margin-top: -6rem;
+    padding-right: .2rem;
+    display: flex;
+    flex-flow: row-reverse;
+    gap: .5rem;
+    font-size: .8rem;
+    height: 1rem;
+    width: 1rem;
+    /* border: 1px solid pink; */
+  }
+
+
+   
+    /*************** CHAT-OR-GROUP *****************/
+
+    .chat-or-group .groups-name{
+        display: none;
+       }
+
+       .chat-or-group {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 0 .9rem;
+        font-size: .8rem;
+        color:#FDA49C;
+        margin-top: .5rem;
+       }
+
+
+/******************** SEARCH HEADER***************************/
+    .chat-body{
+        display: flex;
+        flex-flow: column;
+    }
+
+    .chat-top{
+        background-color: #FCEFE7;
+        height: 3.5rem;
+        display: flex;
+        flex-flow: column;
+        /* gap: .4rem; */
+        padding: 1rem 1.5rem;
+        position: relative;
+    }
+
+    .chat-top img{
+        height: .7rem;
+        width: .7rem;
+    }
+    
+    .search-div{
+        display: flex;
+      /* border: 1px solid red; */
+      height: 100%;
+      margin: 0 auto;
+      }
+
+    .chat-top input{
+        padding: .3rem 2rem;
+        margin-top: .1rem;
+        border: 1px solid transparent;
+        border-radius: .4rem;
+        outline: none;
+        width: 90%;
+    }
+
+    .chat-top .search-img{
+        position: absolute;
+        left: 22%;
+        bottom: 33%;
+        height: .9rem;
+        transform: translate(45%, 20%);
+        /* border: 1px solid red; */
+    }
+
+
+
+    /************ ACCOUNTSPANEL ***************/
+    .account-body{
+        display: flex;
+        flex-flow: column;
+    }
+    
+    .account-top{
+        height: 80px;
+        width: 100%;
+        background-color:#FCEFE7;
+    }
+
+    .account-main{
+        padding: 1rem 1.5rem;
+        /* border: 1px solid black; */
+        border-radius: .5rem;
+        display: flex;
+        flex-flow: column;
+       
+    }
+
+    .account-main-top{
+        border: 1px solid grey;
+        border-radius: .5rem;
+    }
+
+    .account-main div{
+        padding: .5rem;
+        border-bottom: 1px solid black;
+    }
+
+    /* .account-main div:last-child{
+        margin-bottom: 1px solid transparent;
+    } */
+
+    /* .E-dropdown label.help, .G-dropdown label.delete-account{
+        border-bottom: 1px solid transparent;
+    } */
+
+    .account-main img.dropdown-img{
+        /* border: 1px solid blue; */
+        width: 1.2rem;
+        height: 1.2rem;
+        float: right;
+        cursor: pointer;
+    }
+
+    .account-main div ul{
+        padding: 1rem 1.5rem;
+        display: none;
+    }
+
+
+    .account-main-top option{
+       border: 1px solid grey;
+       margin-bottom: .5rem;
+       padding: .1rem .3rem;
+       cursor: pointer;
+    }
+
+    .account-main-bottom {
+        margin-top: .8rem;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        border: 1px solid black;
+        border-radius: .5rem;
+    }
+
+    .logNdelete-img{
+        float: left;
+        padding-right: .5rem;
+        width: 1rem;
+        height: 1.5rem;
+    }
+
+
+
+
+
+
+    /************************ HOMEPAGE *************************************/
+    /* .profile-body{
+        position: relative;
+    } */
+
+    .profile-top{
+        height: 3rem;
+        width: 25rem;
+    }
+
+    .profile-top img{
+        height:3rem;
+        width: 25rem;
+    }
+
+    .profile-body .mini-profile-picture{
+        height: 1rem;
+        width: 12%;
+        padding: 1.5rem 0;
+        /* border: 1px solid green; */
+        border-radius: 100%;
+        margin: 0 auto;
+        margin-top: -1rem;
+        margin-bottom: 1rem;
+        cursor: pointer;
+    }
+  
+    .profile-body .mini-profile-picture img{
+      /* border: 1px solid red; */
+      height: 3rem;
+      width: 3.5rem;
+      border-radius: 100%;
+    }
+
+
+    .profile-bottom {
+        /* border: 1px solid green; */
+        position: relative;
+    }
+
+    .profile-content{
+        border-bottom: 1px solid black;
+        margin: .5rem 2rem;
+        width: auto;
+        padding: .2rem 1rem;
+        text-align: center;
+        font-size: .7rem;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .profile-content h6{
+        margin: .3rem 0;
+    }
+
+    .profile-status{
+        padding: .2rem .6rem;
+        font-weight: 500;
+        font-size: .7rem;
+    }
+
+    .post-followers-following{
+        /* border: 2px solid orange; */
+        border-radius: .5rem;
+        margin: .8rem 1rem;
+        padding: .4rem .6rem;
+        width: auto;
+        height: 1.8rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: .6rem;
+        font-weight: 500;
+        background-color:#d1d0d04d;
+    }
+
+    .friends-box{
+        /* border: 1px solid red; */
+        height: 1rem;
+        width: 1rem;
+    }
+
+    .friends-box .friends-tag{
+        margin-bottom: .3rem;
+        font-size: .6rem;
+        color: black;
+    }
+
+    /* .friends-images img{
+        height: 1rem;
+        width: 2.5rem;
+        margin-bottom: .2rem;
+        border: 1px solid blue;
+    } */
+
+    /* recheck this code */
+    /* .friends-images img:first-child{
+        margin-left: 3rem;
+    } */
+
+
+    /**** same thing with .friends-box a:link on desktop view ****/
+
+    .friends-box .see-all-friends{
+        font-size: .5rem;
+        position: absolute;
+        right: 6%;
+        top: 46%;
+        transform: translate(6%, 39%);
+    }
+
+    .friends-box a:link {
+        color: pink;
+        font-weight: 500;
+        font-size: .6rem;
+        cursor: pointer;
+        text-decoration: none;
+
+    }
+
+    .friends-images{
+        display: flex;
+        justify-content: space-between;
+        height: .8rem;
+        width: 1rem;
+   }
+
+    .friends-images img{
+        border-radius: 50%;
+        border: 1px solid transparent;
+        height: 3rem;
+        width: 3rem;
+        padding: auto;
+        margin: 1rem;
+    }
+
+    .mini-profile-box{
+        /* border: 2px solid green; */
+        text-align: center;
+
+    }
+
+    .top-profile-box{
+        padding: .2rem 1.6rem;
+        width: auto;
+        background-color:#d1d0d04d;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .top-profile-box img{
+        width: .6rem;
+        height: .6rem;
+        padding: 0 .7rem;
+        border: 1px solid transparent;
+        border-radius: 100%;
+        cursor: pointer;
+    }
+
+    .bottom-profile-box{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 110px);
+        gap: 1rem;
+        margin-top: 3.5rem;
+        padding: .9rem .6rem;
+        /* border: 1px solid blue; */
+    }
+
+    .bottom-profile-box img{
+        width: 7rem;
+        height: 2.2rem;
+        border-radius: 10px;
+        /* padding: 3rem; */
+        cursor: pointer;
+    }
+
+
+    /********************** BOTTOMPANEL ************/
+    .bottom-panel{
+        /* border: 2px solid red; */
+        padding: 0 .4rem;
+        display: flex;
+        justify-content: space-between;
+        height: 1rem;
+    }
+
+    .bottom-panel div{
+        font-size: .6rem;
+        font-weight: 500;
+        /* border: 1px solid red; */
+    }
+
+    .bottom-panel div img{
+        height: 1.2rem;
+        margin-top: .5rem;
+    }
+  
+
+
+    /************* WELCOMEPAGE ***********************/
+    img.welcome-logo{
+        height: 50%;
+        width: 50%;
+        margin-left: 5.5rem;
+        margin-top: 3rem;
+        padding: 1rem;
+        /* border: 2px solid red; */
+    }
+
+    .welcomePage-buttons{
+        padding: .3rem 2rem;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        /* border: 1px solid blue; */
+    }
+
+    .welcomePage-buttons button{
+        cursor: pointer;
+        border: 1px solid red;
+        border-radius: .5rem;
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+        font-weight: 700;
+        background-color: white;
+        color: #FD8D83;
+        
+    }
+
+    .welcomePage-buttons button:hover{
+        color: white;
+        background-color: #FD8D83;
+    }
+
+
+
+
+    /********* STATUSPAGE ***********/
+    .status-page-background{
+        filter: blur(3px);
+        pointer-events: none;
+    }
+
+    /* .status-page-background .bottom-panel{
+        filter: none;
+    } */
+
+    .status-page-body{
+        border: 1px solid transparent;
+        border-radius: 5px;
+        position: fixed;
+        top: 15%;
+        left: 15%;
+        margin: 0 auto;
+        width: 60%;
+        height: auto;
+        padding: 1rem 1.5rem;
+        background-color: white;
+    }
+
+    .status-page-top{
+        padding: .4rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: .5rem;
+        margin-bottom: .2rem;
+    }
+
+    img.status-profile-img{
+        border: 1px solid transparent;
+        border-radius: 50%;
+        height: 3rem ;
+        width: 4rem ;
+        padding: 1rem;
+    }
+
+    h6.status-profile-name{
+        font-size: .9rem;
+        /* border: 1px solid red; */
+    }
+
+    .status-page-body textarea{
+        width: 100%;
+        height: 2rem;
+        padding: 2rem 0;
+        margin-bottom: .8rem;
+        border-bottom: 1px solid black;
+        outline: none;
+    }
+
+    .status-page-footer{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .status-page-footer img{
+        width: 15px;
+        height: 15px;
+    }
+
+    .status-page-footer p{
+        color: black;
+        cursor: pointer;
+        position: relative;
+
+    }
+
+    .status-page-footer p a:link{
+        outline: none;
+        text-decoration: none;
+        border: 1px solid green;
+        position: absolute;
+        top: 20%;
+        color: black;
+        cursor: pointer;
+    }
+
+    .status-page-footer button{
+        padding: .2rem 1rem;
+        border: 1px solid transparent;
+        margin-top: -.2rem;
+        border-radius: 5px;
+        color: black;
+        background-color: #FD8D83;
+        cursor: pointer;
+
+    }
+
+    .status-page-footer button:hover{
+        color: white;
+        background-color: #FD8D83;
+    }
+
+
+    /*********** WELCOMEBACKPAGE *******************/
+
+    .welcome-back-page-img{
+        display: flex;
+        flex-flow: column;
+        margin-left: 3rem;
+        margin-top: 1rem;
+        gap: .7rem;
+    }
+
+    .welcome-back-page-img img{
+        /* border: 1px solid red; */
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .welcome-back-page-img img.welcomeLogo{
+        display: none;
+    }
+
+    .welcome-back-page-img img.go-back{
+        cursor: pointer;
+        /* border: 1px solid red; */
+    }
+
+    .welcome-back-body{
+        padding: .5rem 3rem;
+        position: relative;
+    }
+
+    .welcome-back-name{
+        font-weight: 900;
+        padding: .3rem 0;
+        margin-bottom: .5rem;
+    }
+
+    .login-form{
+        padding: 1.3rem 0;
+        /* border: 1px solid pink; */
+        margin-top: .2rem;
+    }
+
+    .login-form input{
+        padding: .5rem;
+        background-color: #d1d0d04d;
+        color: black;
+        border: 1px solid transparent;
+        border-radius: .5rem;
+        margin-bottom: .7rem;
+        width: 95%;
+        outline: none;
+        flex-wrap: wrap;
+    }
+
+    .hideNsee-password{
+        height: 1rem;
+        width: 1rem;
+        position: absolute;
+        top: 25%;
+        right: 15%;
+        /* transform: translate(30% 90%); */
+        cursor: pointer;
+    }
+    
+    .rememberNforget{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 .3rem;
+    }
+
+    .rememberNforget p{
+        font-size: .5rem;
+    }
+
+    .remember-box{
+        display: flex;
+        justify-content: space-between;
+        gap: .3rem;
+    }
+
+    .remember-box input{
+        width: .6rem;
+        height: .6rem;
+        margin-top: .1rem;
+    }
+
+    .welcome-back-buttons{
+        display: flex;
+        flex-flow: column;
+        padding: .2rem;
+        margin-top: .8rem;
+    }
+
+    .welcome-back-buttons button.login-button,  .welcome-back-buttons button.login-with-google{
+        color: black;
+        background-color: white;
+        padding: .8rem;
+        margin-bottom: .8rem;
+        border: 1px solid black;
+        border-radius: .2rem;
+        cursor: pointer;
+        font-weight: 700;
+
+    }
+
+    .welcome-back-buttons button.login-button:hover, .welcome-back-buttons button.login-with-google:hover{
+        color: white;
+        background-color: #FD8D83;
+        cursor: pointer;
+        font-weight: 700;
+    }
+    
+    img.google-img{
+        width: 1.2rem;
+        height: 1.28rem;
+        position: absolute;
+        bottom: 20%;
+        right: 70%;
+        transform: translate(50%, 12%);
+        position: absolute;
+    }
+
+    .dont-have-an-account{
+        font-size: .7rem;
+        text-align: center;
+    }
+
+    .welcome-back-body a:link{
+        color: blue;
+        outline: none;
+        text-decoration: none;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+
+    /********** PRIVATECHAT ************/
+    .private-chat-body{
+        padding: 2rem 1rem;
+    }
+
+    .private-chat-content{
+        /* background-color: red; */
+        margin: 0 3rem;
+        padding: 3rem 2.5rem;
+        background-color: white;
+        border-radius: 5px;
+        height: 14rem;
+        position: fixed;
+        top: 8%;
+
+
+        display: flex;
+        justify-content: space-around;
+        flex-flow: column;
+    }
+
+    .private-chat-content .private-sender{
+        background-color: grey;
+        width: auto;
+    }
+
+    .private-chat-content .private-receiver{
+        background-color: bisque;
+        float: right;
+    }
+
+    .private-chat-content .private-chat-day{
+        text-align: center;
+        border: 1px solid grey;
+        box-shadow: 1px 2px 1px red;
+        padding: .2rem .2rem;
+        width: 20%;
+        transform: translate(150%);
+        height: auto;
+        font-size: .6rem;
+
+
+        display: none;
+    }
+
+
+
+
+
+
+
+
+
+
+  /* } */
+
+  
+
+
+/* SAMSUNG */
+/* @media only screen and (max-width: 915px) {
+    body {
+     
+    }
+  } */
+
+
+/* IPAD AND TABLETS */
+/* @media only screen and (max-width: 1024px) {
+    body {
+      
+    }
+  } */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+/* DESKTOP */
+/* @media only screen and (max-width: 1368px) {
+    body {
+      
+    }
+  } */
+
+
+

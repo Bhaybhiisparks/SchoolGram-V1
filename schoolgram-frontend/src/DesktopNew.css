@@ -1,0 +1,892 @@
+/* COLOR DOCUMENTATION */
+/*
+
+#EA4335 orange
+#FED1CD primary 1 (light pink)
+#FD8D83 primary 5
+#FDA49C primary 4
+#FC766A primary 6
+#D1D0D0 gray1 
+#d1d0d04d grey for inouts like email etc
+ 
+*/
+
+/* DESKTOP */
+/* @media only screen and (max-width: 4000px) { */
+    *{
+    padding: 0;
+    border: 0;
+    margin: 0;
+    
+}
+
+    body {
+      background-color: white;
+    }
+    
+
+    /* CHATS PAGE  */
+    
+    .chat-body{
+      /* border: 1px solid green; */
+      padding: 2rem 1rem;
+      cursor: pointer;
+  }
+
+    .chat-body img.contact-photo{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+  }
+
+  .chat-main{
+    padding: 1rem;
+  }
+
+  .chat-main-body h4{
+    font-size: 1.5rem;
+  }
+
+  .chat-body .main1{
+    background-color:#d1d0d04d;
+    border-radius: 5px;
+  }
+
+  .chat-notiEttime{
+    float: right;
+    margin-top: -7rem;
+    /* border: 1px solid red; */
+    padding: 1rem;
+    display: flex;
+    flex-flow: row-reverse;
+    gap: 2rem;
+  }
+
+    /***************************** SEARCH HEADER *********************/
+
+       /***************************** REMEMBER THIS CHANGES FOR EVERY PAGE. This ddefault was via ACCOUNTS PANEL page*************/
+    .chat-top{
+        height: 7rem;
+        background-color: #FCEFE7;
+    }
+
+    .search-div{
+      display: flex;
+    /* border: 1px solid red; */
+    height: 100%;
+    position: relative;
+    }
+
+  .search-img{
+    /* border: 1px solid red; */
+    position: absolute;
+    top:35%;
+    left: 15%;
+    transform: translate(35%, 5%);
+    height: 2rem;
+    width: 1.5rem;
+  }
+  .search-input{
+    /* border: 1px solid red; */
+    padding: 1rem 9rem;
+    width: 60%;
+    border-radius: 5px;
+    margin: 2rem auto;
+    outline: none;
+    font-size: 1rem;
+  }
+
+
+  /***************************** FORM CREATE NEW ACCOUNT *********************/
+
+  .create-new-account{
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    box-shadow: 3px 3px 19px #FDA49C;
+    margin: 1rem auto;
+    /* text-align: center; */
+    width: 650px;
+    height: auto;
+    padding: 2rem 3rem;
+  }
+  .go-back{
+    width: 50px;
+    height: 50px;
+    display: none;
+  }
+
+  h4.create-text{
+    color: black;
+    font-size: 30px;
+    margin-bottom: 2rem;
+  }
+
+  .create-new-account input{
+    padding: 1rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    outline: none;
+    background-color: #d1d0d04d ;
+  }
+
+  .fname-to-dept{
+        padding: .5rem 0;
+        display: grid;
+        color: black;
+        outline: none;
+        grid-template-columns: repeat(auto-fill, 270px);
+        gap: 0 6rem;
+        margin-bottom: -.5rem;
+        /* border: 1px solid red; */
+  }
+
+  .email-et-password{
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .warning-box{
+    /* border: 1px solid red; */
+    padding: .5rem;
+  }
+
+  .check-password-content{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    padding: .5rem;
+  }
+
+  .check-password-content img{
+    width: 9rem;
+    height: 1rem;
+    /* border: 1px solid red; */
+  }
+
+  .check-terms-and-conditions{
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+    padding: .3rem 0;
+    /* border: 1px solid green; */
+    color: black;
+    font-weight: 500;
+  }
+
+  .check-affirm{
+    cursor: pointer;
+    margin-top: .3rem;
+  }
+
+  .create-new-account a:link{
+    color: blue;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .create-account-button{
+    padding: 1rem;
+    width: 20rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 700;
+    color:#FD8D83;
+    background-color: white;
+  }
+
+  .create-account-button:hover{
+    color: white;
+    background-color: #FD8D83;
+    font-weight: 700;
+  }
+
+  .redirect-to-login{
+    text-align: center;
+  }
+
+
+     /*************** CHAT-OR-GROUP *****************/
+     .chat-or-group {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+      font-size: 1.3rem;
+      color:#FDA49C;
+      margin-top: .5rem;
+     }
+
+     .chat-or-group .groups-name{
+      display: none;
+     }
+
+
+/********************** ACCOUNTS PANEL ***************************/
+
+ /********* I THINK THIS IS FOR THE SEARCH HEADER IN SEARCH HEADER FILE *********/
+    /* .account-body{
+
+    }
+    
+    .account-top{
+ 
+    } */
+
+
+    /********* remember to remove this in your final react file *********/
+    /* .searchHeader{
+      background-color: purple; 
+      height: 8rem;
+  } */
+  
+  .account-main{
+      /* background-color: bisque; */
+      padding: 1rem 1.5rem;
+      /* border: 1px solid black; */
+      border-radius: .5rem;
+      display: flex;
+      flex-flow: column;
+  }
+  
+  .account-main-top{
+      font-size: 1.3rem;
+      font-weight: 700;
+      border: 1px solid black;
+      padding: .5rem 1rem;
+      border-radius: 10px;
+  }
+  
+  .account-main div{
+      padding: 1.3rem 2rem;
+      border-bottom: 1px solid black;
+  }
+  
+
+  .account-main div:last-child{
+      /* margin-bottom: 1px solid transparent; */
+  }
+  
+  .E-dropdown label.help, .G-dropdown label.delete-account{
+      /* border-bottom: 1px solid transparent; */
+  }
+  
+  .account-main img.dropdown-img{
+      /* border: 1px solid blue; */
+      width: 1.2rem;
+      height: 1.2rem;
+      padding: .5rem 1.2rem;
+      float: right;
+      cursor: pointer;
+  }
+
+  .account-main img.dropdown-img:hover{
+      outline: auto;
+      border-radius: 100%;
+      border: 1px solid bisque;
+  }
+  
+
+  .account-main div ul{
+      padding: 1rem 1.5rem;
+      display: none;
+  }
+  
+  
+  .account-main-top option{
+      border: 1px solid grey;
+      margin-bottom: .5rem;
+      padding: .1rem .3rem;
+      cursor: pointer;
+  }
+  
+  .account-main-bottom {
+      font-size: 1.3rem;
+      font-weight: 700;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin-top: 1rem;
+      padding: .5rem 1rem;
+  }
+
+  
+  .logNdelete-img{
+      padding: 0 .8rem;
+      width: 2rem;
+      height: 1.5rem;
+      /* height: 1.5rem; */
+      /* border: 1px solid red; */
+      border-radius: 100%;
+  }
+
+  .account-bottom{
+    /* border: 1px solid green; */
+    margin: 0 2rem;
+    height: 4.5rem;
+    margin-top: 3.5rem;
+    cursor: pointer;
+  }
+
+
+
+
+/********************** HOMEPAGE ***************************/
+
+/* 
+   .profile-body{
+
+  } */
+
+  .profile-top{
+      background-color: pink;
+      width: 100%;
+      height: 15rem;
+      /* padding: 3rem 0; */
+  }
+
+  .profile-top img.homepage-profile-img{
+    width: 100%;
+    height: 100%;
+    /* cursor: pointer; */
+    /* border: 1px solid red; */
+  }
+
+  .profile-body .mini-profile-picture{
+      height: 5rem;
+      width: 12%;
+      padding: 1.5rem 0;
+      /* border: 1px solid green; */
+      border-radius: 100%;
+      margin: 0 auto;
+      margin-top: -3.8rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+  }
+
+  .profile-body .mini-profile-picture img{
+    /* border: 1px solid red; */
+    height: 8rem;
+    width: 11rem;
+    border-radius: 100%;
+  }
+
+  .profile-bottom {
+      padding: .8rem 2.5rem;
+      height: auto;
+  }
+
+  .profile-content{
+      padding-bottom: 1rem;
+      margin-bottom: .8rem;
+      color: black;
+      text-align: center;
+      border-bottom: 1px solid gray;
+  }
+
+  .profile-content .profile-name{
+      font-size: 2rem;
+  }
+  
+  .profile-content h6{
+      font-size: 1rem;
+  }
+
+  .profile-status{
+      font-size: 1.3rem;
+  }
+
+  .post-followers-following{
+      /* border: 2px solid orange; */
+      border-radius: .5rem;
+      margin: .8rem auto;
+      padding: .7rem 1rem;
+      width: auto;
+      height: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: 500;
+      background-color: #d1d0d04d ;
+  }
+
+  .friends-box{
+      padding-top: .5rem;
+  }
+
+  .friends-box .friends-tag{
+      margin-bottom: .3rem;
+      font-size: 1.5rem;
+  }
+
+  .friends-images{
+       display: flex;
+       justify-content: space-between;
+
+  }
+
+  .friends-images img{
+      height: 5rem;
+      width: 12rem;
+      padding: .8rem .5rem;
+      margin-bottom: .2rem;
+      border-radius: 100%;
+      cursor: pointer;
+  }
+
+  /* recheck this code */
+  /* .friends-images img:first-child{
+      margin-left: 3rem;
+  } */
+
+  .friends-box .see-all-friends{
+      /* border: 1px solid pink; */
+      margin-left: 94%;
+      margin-bottom: 1%;
+  }
+
+  .friends-box a:link {
+      color: blue;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      top: 20px;
+  }
+
+  .friends-images img{
+      border-radius: 50%;
+      border: 1px solid transparent;
+      border-radius: 100%;
+  }
+
+  /* .mini-profile-box{ */
+      /* border: 2px solid black; */
+      /* text-align: center;
+      height: 100%;
+      width: auto;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between; */
+
+  /* } */
+
+  .top-profile-box{
+      /* background-color: purple; */
+      border: 1px solid transparent;
+      padding: .5rem 0;
+      display: flex;
+      justify-content: space-between;
+      background-color: #d1d0d04d ;
+  }
+
+  .top-profile-box img{
+      width: 2rem;
+      height: 2rem;
+      padding: 0 1rem;
+      border: 1px solid transparent;
+      border-radius: 100%;
+      cursor: pointer;
+  }
+
+  .bottom-profile-box{
+      /* background-color: green; */
+      /* border: 1px solid pink; */
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 250px);
+      gap: 2rem;
+      justify-content: space-between;
+  
+  }
+
+  
+  .bottom-profile-box img{
+      width: 15rem;
+      height: 10rem;
+      margin-top: 2rem;
+      border-radius: 10px;
+      /* padding: 3rem; */
+      cursor: pointer;
+  }
+
+
+footer.bottom-panel{
+  /* display: none; */
+  /* pointer-events: none; */
+}
+
+
+/************** BOTTOM PANEL *********************/
+.bottom-panel{
+  /* border: 2px solid red; */
+  padding: 0 .4rem;
+  display: flex;
+  justify-content: space-between;
+  height: 1rem;
+}
+
+.bottom-panel div{
+  font-size: .6rem;
+  font-weight: 500;
+  /* border: 1px solid red; */
+}
+
+.bottom-panel div img{
+  height: 1.2rem;
+  margin-top: .5rem;
+}
+
+
+
+/******************** WELCOMEPAGE *****************/
+.welcomePage-div{
+  /* border: 1px solid green; */
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #FD8D83;
+  width: 40%;
+  margin: 15rem auto;
+  padding: 2rem;
+  /* text-align: center; */
+  display: flex;
+  justify-content: space-around;
+  /* scroll-behavior: smooth; */
+}
+
+.welcomePage-div img.welcome-logo{
+  height: 10rem;
+  width: 5rem;    
+  padding: 6rem;
+  /* border: 2px solid #FD8D83; */
+  /* border-radius: 100%; */
+}
+.welcomePage-buttons{
+  padding: 2rem 0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-around;
+  /* border: 1px solid blue; */
+}
+.welcomePage-buttons button{
+  cursor: pointer;
+  border: 1px solid red;
+  border-radius: .5rem;
+  width: 15rem;
+  height: auto;
+  padding: 1.5rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  background-color: white;
+  color: #FD8D83;
+  
+}
+.welcomePage-buttons button:hover{
+  color: white;
+  background-color: #FD8D83;
+}
+
+
+
+
+
+
+/******************** STATUS PAGE ******************/
+.status-page-background{
+  filter: blur(7px);
+  pointer-events: none;
+}
+
+/* .status-page-background .bottom-panel{
+  filter: none;
+} */
+
+.status-page-body{
+  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px #FD8D83;
+  position: fixed;
+  top: 30%;
+  left: 25%;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  padding: 1rem 1.5rem;
+  background-color: white;
+}
+
+.status-page-top{
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  margin-bottom: .2rem;
+}
+
+.status-page-top img.status-profile-img{
+  border: 1px solid transparent;
+  border-radius: 50%;
+  height: 6rem;
+  width: 6rem;
+  margin-left: -1rem;
+  cursor: pointer;
+  /* border: 1px solid red; */
+}
+
+h6.status-profile-name{
+  font-size: 1.2rem;
+  /* border: 1px solid red; */
+  cursor: none;
+}
+
+.status-page-top img.status-exit-img{
+  cursor: pointer;
+}
+
+.status-page-body textarea{
+  width: 100%;
+  height: 9rem;
+  padding: 2rem 0;
+  margin-bottom: .8rem;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+.status-page-footer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.status-page-footer img{
+  width: 3rem;
+  height: 2rem;
+  /* border: 1px solid red; */
+}
+
+.status-page-footer p{
+  color: black;
+  cursor: pointer;
+  position: relative;
+
+}
+
+.status-page-footer p a:link{
+  outline: none;
+  text-decoration: none;
+  border: 1px solid green;
+  position: absolute;
+  top: 20%;
+  color: black;
+  cursor: pointer;
+}
+
+.status-page-footer button{
+  padding: .2rem 1rem;
+  border: 1px solid transparent;
+  margin-top: -.2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: black;
+  background-color: #FD8D83;
+  cursor: pointer;
+
+}
+
+.status-page-footer button:hover{
+  color: white;
+  background-color: #FD8D83;
+}
+
+
+
+
+/********************* WELCOMEBACKPAGE ********************/
+
+
+.welcome-back-page-img{
+  display: flex;
+  flex-flow: column;
+  margin-left: 10rem;
+  margin-top: 12rem;
+  gap: 9rem;
+  float: left;
+  /* border: 1px solid red; */
+}
+
+.welcome-back-page-img img{
+  /* border: 1px solid red; */
+  border-radius: 50%;
+  width: 5rem;
+  height: 4rem;
+}
+
+.welcome-back-page-img img.go-back{
+  display: none;
+}
+
+
+.welcome-back-page-img img.welcomeLogo{
+
+}
+
+.welcome-back-body{
+  padding: 3rem;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+  /* border: 1px solid green; */
+  float: right;
+  margin: 6rem 4rem;
+  position: relative;
+}
+
+.welcome-back-name{
+  font-weight: 900;
+  font-size: 2rem;
+  padding: .3rem 0;
+  margin-bottom: .5rem;
+}
+
+.welcome-back-name2{
+  font-size: 1rem;
+}
+
+.login-form{
+  padding: 2rem 0;
+  /* border: 1px solid pink; */
+}
+
+.login-form input{
+  padding: 1rem;
+  background-color: #d1d0d04d;
+  color: black;
+  border: 1px solid transparent;
+  border-radius: .5rem;
+  margin-bottom: .7rem;
+  width: 96%;
+  flex-wrap: wrap;
+  outline: none;
+}
+
+.hideNsee-password{
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  /* padding: 1rem; */
+  top: 40%;
+  right: 10%;
+  transform: translate(0%, -35%);
+  cursor: pointer;
+}
+
+.rememberNforget{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 .3rem;
+}
+
+.rememberNforget p{
+  font-size: 1rem;
+}
+
+.remember-box{
+  display: flex;
+  justify-content: space-between;
+  gap: .3rem;
+}
+
+.remember-box input{
+  width: 1rem;
+  height: 1rem;
+  margin-top: .3rem;
+  cursor: pointer;
+}
+
+.welcome-back-buttons{
+  display: flex;
+  flex-flow: column;
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
+  padding: 2rem;
+  margin-top: .8rem;
+  /* border: 1px solid green; */
+}
+
+.welcome-back-buttons button.login-button, .welcome-back-buttons button.login-with-google{
+  color: black;
+  background-color: white;
+  padding: .8rem;
+  margin-bottom: .8rem;
+  border: 1px solid black;
+  border-radius: .2rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.welcome-back-buttons button.login-button:hover, .welcome-back-buttons button.login-with-google:hover{
+  color: white;
+  background-color: #FD8D83;
+  cursor: pointer;
+  font-weight: 700;
+
+}
+
+img.google-img{
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  bottom: 25%;
+  right: 65%;
+  cursor: pointer;
+  transform: translate(40%, 5%);
+}
+
+.dont-have-an-account{
+  font-size: 1rem;
+  text-align: center;
+}
+
+.welcome-back-body a:link{
+  color: blue;
+  outline: none;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    /* } */
