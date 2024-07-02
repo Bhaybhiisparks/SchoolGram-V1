@@ -8,16 +8,16 @@
 
 // FILES
 // import FormLogin from './scenes/FormCreateAcct/FormLogin';
-import HomePage from './scenes/Homepage/Profilepage';
+// import HomePage from './scenes/Homepage/Profilepage';
 import WelcomePage from './scenes/WelcomePage/WelcomePage';
 import ChatsPage from './scenes/ChatsPage/ChatsPage';
 import GroupsPage from "./scenes/GroupsPage/GroupsPage";
 
-import Profilepage from "./scenes/Homepage/Profilepage";
+// import Profilepage from "./scenes/Homepage/Profilepage";
 import AccountsPanel from './scenes/AccountsPanel/AccountsPanel';
 import StatusPage from './scenes/StatusPage/StatusPage';
 import PrivateChat from "./scenes/PrivateChat/PrivateChat";
-import WelcomeBackPage from './scenes/WelcomeBackPage/WelcomeBackPage';
+// import WelcomeBackPage from './scenes/WelcomeBackPage/WelcomeBackPage';
 // import FormCreateAcct from "./scenes/FormCreateAcct/FormCreateAcct";
 
 
