@@ -8,16 +8,18 @@
 
 // FILES
 // import FormLogin from './scenes/FormCreateAcct/FormLogin';
-import AccountsPanel from './scenes/AccountsPanel/AccountsPanel';
-import ChatsPage from './scenes/ChatsPage/ChatsPage';
-import GroupsPage from "./scenes/GroupsPage/GroupsPage";
 import HomePage from './scenes/Homepage/Profilepage';
 import WelcomePage from './scenes/WelcomePage/WelcomePage';
+import ChatsPage from './scenes/ChatsPage/ChatsPage';
+import GroupsPage from "./scenes/GroupsPage/GroupsPage";
+
+import Profilepage from "./scenes/Homepage/Profilepage";
+import AccountsPanel from './scenes/AccountsPanel/AccountsPanel';
 import StatusPage from './scenes/StatusPage/StatusPage';
 import PrivateChat from "./scenes/PrivateChat/PrivateChat";
 import WelcomeBackPage from './scenes/WelcomeBackPage/WelcomeBackPage';
 import FormCreateAcct from "./scenes/FormCreateAcct/FormCreateAcct";
-import Profilepage from "./scenes/Homepage/Profilepage";
+
 
 // IMPORT COMPONENTS
 import SearchHeaderChatGroup from './components/SearchHeaderChatGroup';
@@ -56,6 +58,11 @@ function App() {
         <Route path="/profile/userId" element ={<WelcomePage />} />
         <Route path="/chat" element ={<ChatsPage />} />
         <Route path="/group" element ={<GroupsPage />} /> 
+
+        <Route path="/profilepage" element ={<Profilepage />} /> 
+        <Route path="/accountspanel" element ={<AccountsPanel />} /> 
+        <Route path="/statuspage" element ={<StatusPage />} /> 
+        <Route path="/privatechat" element ={<PrivateChat />} /> 
       </Routes>
       </BrowserRouter>
 
