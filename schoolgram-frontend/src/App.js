@@ -18,7 +18,7 @@ import AccountsPanel from './scenes/AccountsPanel/AccountsPanel';
 import StatusPage from './scenes/StatusPage/StatusPage';
 import PrivateChat from "./scenes/PrivateChat/PrivateChat";
 import WelcomeBackPage from './scenes/WelcomeBackPage/WelcomeBackPage';
-import FormCreateAcct from "./scenes/FormCreateAcct/FormCreateAcct";
+// import FormCreateAcct from "./scenes/FormCreateAcct/FormCreateAcct";
 
 
 // IMPORT COMPONENTS
