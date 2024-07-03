@@ -7,8 +7,6 @@
 
 
 // FILES
-// import FormLogin from './scenes/FormCreateAcct/FormLogin';
-// import HomePage from './scenes/Homepage/Profilepage';
 import WelcomePage from './scenes/WelcomePage/WelcomePage';
 import ChatsPage from './scenes/ChatsPage/ChatsPage';
 import GroupsPage from "./scenes/GroupsPage/GroupsPage";
@@ -33,7 +31,10 @@ import {ToggleScreen} from "./components/Togglescreen"
 
 
 // PERSONALIZED IMPORTS
-import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
+// import { BrowserRouter as Routes, Route, Switch } from 'react-router-dom';
+
 
 
 
@@ -54,12 +55,12 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path="/" element ={<WelcomePage />} />
-        <Route path="/home" element ={<HomePage />} />
+        {/* <Route path="/home" element ={<WelcomebackPage />} /> */}
         <Route path="/profile/userId" element ={<WelcomePage />} />
         <Route path="/chat" element ={<ChatsPage />} />
         <Route path="/group" element ={<GroupsPage />} /> 
 
-        <Route path="/profilepage" element ={<Profilepage />} /> 
+        {/* <Route path="/profilepage" element ={<Profilepage />} />  */}
         <Route path="/accountspanel" element ={<AccountsPanel />} /> 
         <Route path="/statuspage" element ={<StatusPage />} /> 
         <Route path="/privatechat" element ={<PrivateChat />} /> 
@@ -69,17 +70,7 @@ function App() {
 
 
 
-    // <FormLogin> </FormLogin>
-    // <ChatsPage> </ChatsPage>
-    // <GroupsPage></GroupsPage>
-    // <AccountsPanel></AccountsPanel>
-    // <SearchHeaderChatGroup></SearchHeaderChatGroup>
-    // <HomePage></HomePage>
-    // <WelcomePage></WelcomePage>
-    // <StatusPage></StatusPage>
-    // <PrivateChat></PrivateChat>
-    // <WelcomeBackPage></WelcomeBackPage>
-    // <FormCreateAcct></FormCreateAcct>
+
     
     );
   }
