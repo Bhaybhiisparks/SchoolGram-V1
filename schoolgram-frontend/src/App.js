@@ -4,7 +4,7 @@
 // import STYLING
 import "./mobileView655iPhone.css"
 import "./Desktop1368.css"
-import "./DesktopNew4000.css"
+import "./Desktop4000.css"
 
 
 // FILES
@@ -50,8 +50,11 @@ function App() {
       return 'mobile';
     } else if (width >= 768 && width < 1024) {
       return 'tablet';
-    } else {
-      return 'desktop';
+    } else if (width >= 1024 && width <1368) {
+      return 'desktop'
+    }
+    else {
+      return 'largedesktop';
     }
   };
 
@@ -80,6 +83,9 @@ function App() {
         break;
       case 'desktop':
         import('./Desktop1368.css');
+        break;
+      case 'largedesktop':
+        import('./Desktop4000.css');
         break;
       default:
         break;
