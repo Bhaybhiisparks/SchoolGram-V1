@@ -12,7 +12,7 @@
 */
 
 /* DESKTOP */
-/* @media only screen and (max-width: 4000px) { */
+@media only screen and (max-width: 4000px) {
     *{
     padding: 0;
     border: 0;
@@ -274,13 +274,13 @@
   }
   
 
-  .account-main div:last-child{
+  /* .account-main div:last-child{ */
       /* margin-bottom: 1px solid transparent; */
-  }
+  /* } */
   
-  .E-dropdown label.help, .G-dropdown label.delete-account{
+  /* .E-dropdown label.help, .G-dropdown label.delete-account{ */
       /* border-bottom: 1px solid transparent; */
-  }
+  /* } */
   
   .account-main img.dropdown-img{
       /* border: 1px solid blue; */
@@ -521,10 +521,10 @@
   }
 
 
-footer.bottom-panel{
+/* footer.bottom-panel{ */
   /* display: none; */
   /* pointer-events: none; */
-}
+/* } */
 
 
 /************** BOTTOM PANEL *********************/
@@ -737,9 +737,8 @@ h6.status-profile-name{
 }
 
 
-.welcome-back-page-img img.welcomeLogo{
-
-}
+/* .welcome-back-page-img img.welcomeLogo{ */
+/* } */
 
 .welcome-back-body{
   padding: 3rem;
@@ -868,25 +867,5 @@ img.google-img{
 }
 
 
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    
-    /* } */
+    }

@@ -18,7 +18,7 @@
 }
 
 /* IPHONE AND GALAXY FOLD*/
-/* @media only screen and (max-width: 653px) { */
+@media only screen and (max-width: 653px) {
     body {
       background-color: white;
     }
@@ -901,16 +901,7 @@
         display: none;
     }
 
-
-
-
-
-
-
-
-
-
-  /* } */
+  }
 
   
 

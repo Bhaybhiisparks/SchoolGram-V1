@@ -1,9 +1,10 @@
 // import logo from './logo.svg';
-// import './App.css';
 
-// CSS
-// import "./mobileView.css";
-// import "./DesktopNew.css"
+
+// import STYLING
+import "./mobileView655iPhone.css"
+import "./Desktop1368.css"
+import "./DesktopNew4000.css"
 
 
 // FILES
@@ -22,12 +23,11 @@ import PrivateChat from "./scenes/PrivateChat/PrivateChat";
 // IMPORT COMPONENTS
 import SearchHeaderChatGroup from './components/SearchHeaderChatGroup';
 
-// App.js
 
 
 // toggle screen import
-import React, { useEffect } from 'react';
-import {ToggleScreen} from "./components/Togglescreen"
+import React, { useEffect, useState } from 'react';
+// import {ToggleScreen} from "./components/Togglescreen"
 
 
 // PERSONALIZED IMPORTS
@@ -43,13 +43,58 @@ function App() {
   // const isAuth = Boolean(useSelector((state) => state.token));
 
 
+  // CSS STYLING
+  const getDeviceType = () => {
+    const width = window.innerWidth;
+    if (width < 768) {
+      return 'mobile';
+    } else if (width >= 768 && width < 1024) {
+      return 'tablet';
+    } else {
+      return 'desktop';
+    }
+  };
+
+  const [deviceType, setDeviceType] = useState(getDeviceType());
+
   useEffect(() => {
-    ToggleScreen(); // Call the function when the component mounts or as needed
-    window.addEventListener('resize', ToggleScreen); // Add event listener for resize
+    const handleResize = () => {
+      setDeviceType(getDeviceType());
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on component unmount
     return () => {
-      window.removeEventListener('resize', ToggleScreen); // Clean up event listener on unmount
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    switch (deviceType) {
+      case 'mobile':
+        import('./mobileView655iPhone.css');
+        break;
+      case 'tablet':
+        import('./Desktop1368.css');
+        break;
+      case 'desktop':
+        import('./Desktop1368.css');
+        break;
+      default:
+        break;
+    }
+  }, [deviceType]);
+
+
+
+  // useEffect(() => {
+  //   ToggleScreen(); // Call the function when the component mounts or as needed
+  //   window.addEventListener('resize', ToggleScreen); // Add event listener for resize
+  //   return () => {
+  //     window.removeEventListener('resize', ToggleScreen); // Clean up event listener on unmount
+  //   };
+  // }, []);
 
     return (
       <BrowserRouter>
