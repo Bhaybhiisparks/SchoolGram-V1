@@ -1,5 +1,5 @@
 
-react-router-dom
+## react-router-dom
 
 "devDependencies": {
     "eslint": "^5.16.0"
@@ -58,7 +58,7 @@ To address all issues (including breaking changes), run:
 
   "eslint": "^5.16.0"
 
-Don't try to install it manually: your package manager does it automatically.
+Dont try to install it manually: your package manager does it automatically.
 
 
 
@@ -77,3 +77,31 @@ One of your dependencies, babel-preset-react-app, is importing the​​​
 ​​​ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to​​​
 ​​​your devDependencies to work around this error. This will make this message​​​
 ​​​go away
+
+
+
+##NOTES
+first_name, last_name, institution, 
+department, email, password, level are 
+to only things to be on the register page
+
+
+I had serious issues with react redux conflicting with more than 50% of 
+my other packages for months. Tried using Thunk, I couldnt figure my way out.
+Found out about REact context
+
+
+## BACKEND
+ To verify Token Endpoint with POSTMAN
+#Do this
+URL: http://localhost:5002/verify-token
+Method: GET
+Headers:
+Key: Authorization
+Value: Bearer YOUR_JWT_TOKEN 
+
+##FRONTEND
+ useEffect(() => {
+      getUser();
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  

@@ -1,5 +1,5 @@
 import React from "react";
-import HomePage from "../Homepage/Profilepage";
+import ProfilePage from "../Homepage/ProfilePage";
 
 
 
@@ -26,7 +26,7 @@ const StatusPage = () => {
              <body>
                 <>
                     <div className="status-page-background">
-                        <HomePage></HomePage>
+                        <ProfilePage></ProfilePage>
                     </div>
                     <div className="status-page-body">
             <div className="status-page-top">
@@ -49,7 +49,6 @@ const StatusPage = () => {
 
                     </div>
                     
-
                 </>
 
 

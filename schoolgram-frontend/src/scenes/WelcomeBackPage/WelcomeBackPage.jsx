@@ -1,8 +1,10 @@
-// import React from "react";
-// import { useState } from "react";
-// import { Formik } from "formik";
-// import * as yup from "yup";
-// import { useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import * as Yup from "yup";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { AuthContext } from '../../context/authContext';
+// import { useEffect, useState } from "react";
 // import { useDispatch } from "react-redux";
 // import { setLogin } from "state";
 // import Dropzone from "react-dropzone";
@@ -11,21 +13,203 @@
 
 
 
-// //CUSTOM IMPORTS
-// // custom image imports
-// import arrowLeft from "../misc images/coloured/notification bing.svg"
-// import google from "../misc images/coloured/google icon.svg"
-// import show from "../misc images/black and white/eye-slash.svg"
-// import logo from "../../logo images/logo light.svg"
-// import welcomeLogo from "../../logo images/schoolgramwelcomelogo.svg"
+
+//CUSTOM IMPORTS
+// custom image imports
+import arrowLeft from "../misc images/coloured/notification bing.svg"
+import google from "../misc images/coloured/google icon.svg"
+import show from "../misc images/black and white/eye-slash.svg"
+import logo from "../../logo images/logo light.svg"
+import welcomeLogo from "../../logo images/schoolgramwelcomelogo.svg"
 
 
 
 
 
-// const WelcomeBackPage = () => {
+const WelcomeBackPage = () => {
 
-//       const loginSchema = yup.object().shape({
+    const navigate = useNavigate(); 
+    const { setUser } = useContext(AuthContext); 
+
+    const initialValues = {
+        email: '',
+        password: '',
+    };
+
+    const validationSchema = Yup.object({
+        email: Yup.string().email('Invalid email format').required('Email is required'),
+        password: Yup.string().required('Password is required'),
+    });
+
+    const onSubmit = async (values, { setSubmitting, setStatus }) => {
+        try {
+            const response = await axios.post('http://localhost:5002/login', values);
+            setStatus({ message: response.data.message });
+            
+            const { user, token } = response.data; 
+
+            // Save token to local storage 
+            localStorage.setItem('token', token);
+
+            // if (user && user._id) {
+
+                if (user) {
+                setUser(user); 
+                // Redirect to the profile page
+                navigate(`/user/${user._id}`);
+            } else {
+                // Redirect to a welcomepage if user data is not available
+                navigate('/'); 
+            }
+        
+            setStatus({ message: response.data.message });
+
+            } catch (error) {
+                if (error.response) {
+                    // Server responded with a status other than 200 range
+                    setStatus({ message: error.response.data.message });
+                } else if (error.request) {
+                    // Request was made but no response received
+                    setStatus({ message: "No response from server. Please try again later." });
+                } else {
+                    // Something happened in setting up the request
+                    setStatus({ message: "Error: " + error.message });
+                }
+            }
+            setSubmitting(false);
+    };
+
+     
+
+    return ( 
+        <>
+
+        {/* <header>
+            klh
+        </header> */}
+
+
+                        <div className="welcome-back-page-img">
+                            <img src = {arrowLeft} alt="" className="go-back" />
+                            <img src = {logo} alt="" className="logo" />
+                            <img src={welcomeLogo} alt="" className="welcomeLogo" />
+                        </div>
+                    
+
+                            <div className="welcome-back-body" >
+                                <div className="welcome-back-div">
+                                <h4 className="welcome-back-name">Welcome Back!</h4>
+                                <h6 className="welcome-back-name2">Login to continue</h6>                
+                                </div>
+                            </div>
+
+            <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={onSubmit}
+            >
+                {({
+                    handleSubmit,
+                    isSubmitting,
+                    status
+                }) => (                   
+                    <Form className="login-form" onSubmit={handleSubmit} >  
+
+
+                                            <label>Email:</label>
+                                             <Field 
+                                             type="text" 
+                                             className="login-email" 
+                                             placeholder="Email" 
+                                            //  label="Email"
+                                             name = "email"
+                                             required
+                                             />
+                                             <ErrorMessage name="email" component="div" className="error-message" />
+
+                                            <label>Password:</label>
+                                            <Field 
+                                            type="password" 
+                                            className="login-password" 
+                                            placeholder="Password"
+                                            // label="Password"
+                                            name="password"
+                                            />
+                                            <ErrorMessage name="password" component="div" className="error-message" />
+                                            <img src = {show} className="hideNsee-password"/>
+                    
+                                            <div className="rememberNforget">
+                                                <div className="remember-box">
+                                                <input type="checkbox" className="remember-checkbox" />
+                                                <p className="remember-me-text">Remember me</p>
+                                                </div>
+                                                <p className="forgot-password"> <a href="" className="forget-link">Forgot password</a> </p>
+                                            </div>
+                    
+                    
+                                            {/* BUTTONS */}
+                                             <div className="welcome-back-buttons">
+                                                 <button 
+                                                 className="login-button"
+                                                  type="submit" 
+                                                  disabled={isSubmitting} >Login</button>
+                                                 <button 
+                                                 className="login-with-google" 
+                                                 type="submit" >Login with Google</button>
+                                                 <img src = {google} alt="" className="google-img" />
+                                             </div>
+                                        
+                                             <p className="dont-have-an-account">Don't have an account? 
+                                                     <Link to = "/register">
+                                                      <a href="" className="create-new-acct-link">Create new account!</a>
+                                                     </Link>
+                                                 </p>
+
+
+
+
+
+                                                 {status && status.message && (
+                            <div 
+                                style={{
+                                    position: 'fixed',
+                                    top: '50%',
+                                    left: '50%',
+                                    transform: 'translate(-50%, -50%)',
+                                    padding: '20px',
+                                    backgroundColor: 'white',
+                                    border: '2px solid white',
+                                    borderRadius: '2vw',
+                                    boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
+                                    zIndex: 1000,
+                                }}
+                            >
+                                <p style={{ margin: 0 }}>{status.message}</p>
+                            </div>
+                        )}
+                    
+                                                 {/* {status && status.message && <p>{status.message}</p>} */}
+
+                      </Form>   
+                )}
+            </Formik>
+
+                </>
+ 
+    );
+
+};
+
+
+export default WelcomeBackPage;
+
+
+
+
+
+
+
+{/* //       const loginSchema = yup.object().shape({
 //         email: yup.string().email("invalid email").required("required"),
 //         password: yup.string().required("required"),
 //       })
@@ -37,28 +221,7 @@
 
 
 
-
-     
-
-
 //       const Form = () =>{
-//         const {pageType, setPageType} = useState("login");
-//         // create your themes palette later on 
-//         // const {palatte} = useTheme();
-//         const dispatch = useDispatch();
-//         const navigate = useNavigate();
-//         const loginPage = pageType == "login";
-//         const register = pageType == "register";
-
-//         // create a link to your css media query for 
-//         // ismobile (like the use in material UI)
-//         // ASK CHAT GPT TO rewrite this code 
-
-//         const validateForm = async (values, onSubmitProps) =>{
-//             if (loginPage) await login(values, onSubmitProps);
-//         };
-
-
 
 //         const login = async (values, onSubmitProps) => {
 //             const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
@@ -77,35 +240,16 @@
 //               );
 //               navigate("/home");
 //             }
-//           };
-
-//     return ( 
-//         <>
-
-//         {/* <header>
-//             klh
-//         </header> */}
+//           }; */}
 
 
-//         <div className="welcome-back-page-img">
-//             <img src = {arrowLeft} alt="" className="go-back" />
-//             <img src = {logo} alt="" className="logo" />
-//             <img src={welcomeLogo} alt="" className="welcomeLogo" />
-//         </div>
-       
-
-//             <div className="welcome-back-body" >
-//                 <div className="welcome-back-div">
-//                 <h4 className="welcome-back-name">Welcome Back!</h4>
-//                 <h6 className="welcome-back-name2">Login to continue</h6>
 
 
-//                 <Formik
-//                 onSubmit = {validateForm}
-//                 // initialValues = {loginPage ? initialValuesLogin : initialValuesRegister}
-//                 // AuthenticateShcema = {loginPage? loginSchema: registrationSchema}
-//                 >
-//                 {({
+{/* //                 onSubmit = {validateForm} */}
+{/* //                 // initialValues = {loginPage ? initialValuesLogin : initialValuesRegister} */}
+{/* //                 // AuthenticateShcema = {loginPage? loginSchema: registrationSchema} */}
+{/* //                 > */}
+{/* //                 {({
 //                     values,
 //                     errors,
 //                     touched,
@@ -115,52 +259,5 @@
 //                     setFieldValue,
 //                     resetForm,
 //                 }) =>(
-//                     <form action="" className="login-form" onSubmit={handleSubmit} >  
-//                         <input type="text" className="login-email" placeholder="Email" 
-//                         label="Email"
-//                         name = "email"
-//                         value = {values.email}/>
-//                         <input type="text" className="login-password" placeholder="Password"
-//                         label="Passowrd"
-//                         name="password"
-//                         value = {values.password} />
-//                         <img src = {show} className="hideNsee-password"/>
-
-//                         <div className="rememberNforget">
-//                             <div className="remember-box">
-//                             <input type="checkbox" className="remember-checkbox" />
-//                             <p className="remember-me-text">Remember me</p>
-//                             </div>
-//                             <p className="forgot-password"> <a href="" className="forget-link">Forgot password</a> </p>
-//                         </div>
-
-
-//                         {/* buttons */}
-//                         <div className="welcome-back-buttons">
-//                             <button className="login-button" type="submit">Login</button>
-//                             <button className="login-with-google" type="submit" >Login with Google</button>
-//                             <img src = {google} alt="" className="google-img" />
-//                         </div>
-                    
-//                         <p className="dont-have-an-account">Don't have an account? <a href="" className="create-new-acct-link">Create new account!</a> </p>
-
-
-//                     {/* {loginPage ? "login" : "register"}
-//                     resetForm() */}
-//                     </form>
-//                 )}
-
-
-//                 </Formik>
-                
-//                 </div>
-//             </div>
-//                 </>
-
- 
-//     )
-// }
-
-// }
-
-// export default WelcomeBackPage;
+//                    
+//                 )} */}
