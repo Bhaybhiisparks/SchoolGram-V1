@@ -83,7 +83,7 @@ export async function Login(req, res) {
 
         // Token options
         const options = {
-            expires: new Date(Date.now() + 3600000), // Expires in 1 hour
+            expires: new Date(Date.now() + 3600000), // Expires in 2 hours
             httpOnly: true, // The cookie is only accessible by the web server
             // secure: process.env.NODE_ENV === 'production', // Set secure only in production
             // sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax', // SameSite setting
@@ -98,7 +98,6 @@ export async function Login(req, res) {
         // Set the token to response cookie
         res.cookie("SessionID", token, options);
 
-        // Response
         res.status(200).json({
             status: "success",
             data: { user: user_data, token },

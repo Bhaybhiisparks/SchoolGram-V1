@@ -9,12 +9,16 @@ import tokenMiddleware from "../middleware/authMiddleware.js";
 // const logRequestAndResponse = responseFunctions.logRequestAndResponse;
 
 const router = express.Router();
-const verifyToken = tokenMiddleware.verifyToken;
 const authenticateToken = tokenMiddleware.authenticateToken;
 
 
 // route to verifytoken
-router.get('/verify-token', authenticateToken, verifyToken); 
+router.get('/verify-token', authenticateToken,
+    (req, res) => {
+        res.status(200).json({ user: req.user });
+    }
+ ); 
+// res.json({ user: req.user });
 
 
 // Register route -- POST request
@@ -76,7 +80,6 @@ router.post(
     check("password").not().isEmpty(),
     Validate,
     Login
-    // add a check department and firstname later on
 );
 
 

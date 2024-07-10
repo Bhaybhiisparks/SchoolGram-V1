@@ -100,7 +100,7 @@ function App() {
         <Route path="/chat" element ={<ChatsPage />} />
         <Route path="/group" element ={<GroupsPage />} /> 
 /
-        <Route path="/user" element ={<ProfilePage />} /> 
+        <Route path="/user/:id" element ={<ProfilePage />} /> 
         <Route path="/accountspanel" element ={<AccountsPanel />} /> 
         <Route path="/statuspage" element ={<StatusPage />} /> 
         <Route path="/privatechat" element ={<PrivateChat />} /> 

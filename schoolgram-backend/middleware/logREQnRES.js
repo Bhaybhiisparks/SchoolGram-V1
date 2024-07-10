@@ -32,7 +32,7 @@ function logLoginResponse(req, res, next) {
         try {
             const decodedToken = jwt.verify(token, JWT_SECRET );
             console.log('Decoded Token:', decodedToken);
-            console.log('User ID:', decodedToken.userId); // Adjust the property name based on your JWT payload structure
+            // console.log('User ID:', decodedToken.userId); 
         } catch (err) {
             console.log('Invalid token:', err.message);
         }

@@ -12,50 +12,28 @@ const generateToken = (userId) => {
         const payload = { userId };
         console.log('Payload:', payload); // Log the payload
 
-        const token = jwt.sign(payload, JWT_SECRET, { expiresIn: '30m' }); // Generate session token for user
+        const token = jwt.sign(payload, JWT_SECRET, { expiresIn: '30m' }); 
         console.log('Generated token:', token); // Log the generated token
 
         return token;
     } catch (error) {
         console.error('Error generating token:', error); // Log any errors that might occur
-        throw error; // Rethrow the error after logging it
+        throw error; 
     }
 
 };
 
-const verifyToken = (token) => {
-    return new Promise((resolve, reject) => {
-        //debugging
-        console.log('Received token at verifyToken endpoint:', token); 
-        // Verify the token using JWT_SECRET
-        jwt.verify(token, JWT_SECRET, (err, decoded) => {
-            console.error('Token verification failed at verifyToken enpoint with error:', err.message); // debugging to login verification failure
-            if (err) {
-                // If verification fails, reject the promise with an error
-                return reject(err);
-            }
 
-            // debugging 
-            console.log('Token successfully verified'); // Log successful verification
-            console.log('Decoded payload:', decoded);  //log payload
-
-
-            // If verification succeeds, resolve the promise with the decoded payload
-            resolve(decoded);
-        });
-    });
-};
 
 const authenticateToken = async (req, res, next) => {
     // Extract token from authorization header if present
     const authHeader = req.headers.authorization;
     const token = req.cookies.SessionID || (authHeader && authHeader.startsWith('Bearer ') ? authHeader.substring(7) : null);
 
-
-    // debugging 
+    // Debugging 
     console.log('Auth Header:', authHeader); // Log auth header
     console.log('Token from cookies:', req.cookies.SessionID); // Log token from cookies
-    console.log('Extracted token:', token); //Log extracted token
+    console.log('Extracted token:', token); // Log extracted token
 
     if (!token) {
         console.error('No token provided');
@@ -63,23 +41,30 @@ const authenticateToken = async (req, res, next) => {
     }
 
     try {
-        console.log('Received token to authenticateToken is:', token); 
-        // Verify the token using the verifyToken function
-        const decoded = await verifyToken(token);
-        console.log('Token decoded successfully:', decoded); // Log successful token decode
-        const user = await User.findById(decoded.userId); // Assuming `userId` is in token payload
+        console.log('Received token to authenticateToken:', token); 
+        // Verify the token using JWT_SECRET
+        const decoded = jwt.verify(token, JWT_SECRET);
+
+        // Debugging 
+        console.log('Token successfully verified'); // Log successful verification
+        console.log('Decoded payload:', decoded);  // Log payload
+
+        const user = await User.findById(decoded.userId);
         if (!user) {
-          return res.status(401).json({ message: 'User not found' });
+            return res.status(401).json({ message: 'User not found' });
         }
-        res.status(200).json({ user });
+
+        req.user = user; // Attached user to the request object
         next();
     } catch (err) {
-        console.error('Token verification error at authenticate token endpoint with error:', err);
+        console.error('Token verification error at authenticateToken:', err.message);
         return res.status(403).json({ message: "Invalid token" });
     }
 };
 
-export default { generateToken, verifyToken, authenticateToken };
+
+
+export default { generateToken, authenticateToken };
 
 
 

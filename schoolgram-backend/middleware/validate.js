@@ -1,6 +1,6 @@
-import { validationResult } from "express-validator";
+import { check, validationResult } from "express-validator";
 
-const Validate = (req, res, next) => {
+export const Validate = (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         let error = {};
@@ -9,4 +9,18 @@ const Validate = (req, res, next) => {
     }
     next();
 };
-export default Validate;
+
+export const validatePostCreation =  [
+    check('userId').notEmpty().withMessage('User ID is required.'),
+    check('content').notEmpty().withMessage('Content is required.'),
+
+
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        next(); 
+    }
+];
+export default { Validate, validatePostCreation };

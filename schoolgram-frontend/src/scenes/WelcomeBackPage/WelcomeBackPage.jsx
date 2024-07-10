@@ -45,22 +45,26 @@ const WelcomeBackPage = () => {
         try {
             const response = await axios.post('http://localhost:5002/login', values);
             setStatus({ message: response.data.message });
+            // debugging 
+            console.log( response.data.message);
+            console.log(response.data.user);
+            console.log(response.data.token);
             
             const { user, token } = response.data; 
 
             // Save token to local storage 
             localStorage.setItem('token', token);
 
-            // if (user && user._id) {
 
                 if (user) {
                 setUser(user); 
+                console.log('Navigating to user profile:', `/user/${user._id}`); // Debugging
                 // Redirect to the profile page
-                navigate(`/user/${user._id}`);
-            } else {
-                // Redirect to a welcomepage if user data is not available
-                navigate('/'); 
-            }
+                navigate(`/user/${user._id}`); }
+            // } else {
+            //     // Redirect to a welcomepage if user data is not available
+            //     navigate('/'); 
+            // }
         
             setStatus({ message: response.data.message });
 

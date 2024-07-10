@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const PostSchema = mongoose.Schema(
+const PostSchema = new mongoose.Schema(
     {
         userId: {
             type: mongoose.Schema.Types.ObjectId,
@@ -27,6 +27,11 @@ const PostSchema = mongoose.Schema(
             type: String, 
             required: true
         },
+        visibility: {
+            type: String,
+            enum: ['public', 'private', 'restricted'],
+            default: 'public'
+        },
         picturePath: String,
         userPicturePath : String,
         likes: {
@@ -40,7 +45,32 @@ const PostSchema = mongoose.Schema(
             },
             content: { type: String },
             created_at: { type: Date, default: Date.now }
-          }]
+          }],
+          shares: [{
+            user_id: { 
+                type: mongoose.Schema.Types.ObjectId, 
+                ref: 'User' 
+            },
+            shared_at: { type: Date, default: Date.now }
+        }],
+        bookmarks: [{
+            user_id: { 
+                type: mongoose.Schema.Types.ObjectId, 
+                ref: 'User' 
+            },
+            bookmarked_at: { type: Date, default: Date.now }
+        }],
+        reposts: [{
+            user_id: { 
+                type: mongoose.Schema.Types.ObjectId, 
+                ref: 'User' 
+            },
+            reposted_at: { type: Date, default: Date.now }
+        }],
+        views: {
+            type: Number,
+            default: 0,
+        },
     },
     {timestamps: true}
 );

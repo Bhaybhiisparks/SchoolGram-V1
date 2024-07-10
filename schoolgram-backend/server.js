@@ -8,7 +8,8 @@ import mongoose from "mongoose";
 import App from "./routes/indexroute.js";
 import userAuth from "./routes/authroute.js"; 
 import userRoute from "./routes/userroute.js";
-// import postRoute from "./routes/postroute.js";
+import postRoute from "./routes/postroute.js";
+import statusRoute from "./routes/statusroute.js";
 
 
 
@@ -54,5 +55,6 @@ mongoose.connect(process.env.URI,{
 //  CONFIGURE ROUTES
 server.use ("/", App);
 server.use ("/", userAuth );
-server.use("/", userRoute);
-// server.use("/", postRoute);
+server.use("/user", userRoute);
+server.use("/", postRoute);
+server.use("/", statusRoute);

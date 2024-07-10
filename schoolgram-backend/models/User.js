@@ -2,10 +2,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
 
-// use this same import when importing config into other files
-// recall that you switched from ES to commonJS because this file didnt recognise the type: module
-// so you had to use require (commonJS) in place of import and *
-// import { loadConfig } from "./config/configindex.js"
+
 import { loadConfig } from "../config/configindex.js";
 const { URI, PORT, SECRET_ACCESS_TOKEN } = loadConfig();
 console.log(`URI: ${URI}`);
@@ -56,10 +53,10 @@ const UserSchema = new mongoose.Schema(
             required: true,
             default: "0x01",
         },
-        // picturePath: {
-        //     type: String,
-        //     default: "",
-        // },
+        picturePath: {
+            type: String,
+            default: "",
+        },
         friends: {
             type: Array,
             default: [],
