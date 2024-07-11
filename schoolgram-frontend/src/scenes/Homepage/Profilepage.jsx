@@ -102,9 +102,16 @@ const ProfilePage = () => {
                         <p className="profile-status-word">{profile.department}</p>
                     </div>
                     <div className="post-followers-following">
-                        <p className="posts"> {profile.posts} <br/> Posts</p>
-                        <p className="followers">{profile.followers}</p>
+                        <Link to = "/">
+                            <p className="posts"> {profile.posts} <br/> Posts</p>
+                        </Link>
+                        <Link to = "/">
+                            <p className="followers">{profile.followers}</p>
+                        </Link>
+                        <Link to = "/">
                         <p className="following">{profile.following}</p>
+                        </Link>
+                                  
                     </div>
                     <div className="friends-box">
                         <h4 className="friends-tag"> {profile.friends.length} </h4>

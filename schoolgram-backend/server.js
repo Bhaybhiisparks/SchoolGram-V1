@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
-
+import bodyParser from "body-parser";
 
 // ROUTES
 import App from "./routes/indexroute.js";
@@ -33,14 +33,17 @@ const server = express();
 // Allow request from any source. In real production, this should be limited to allowed origins only
 server.use(cors({
     origin: 'http://localhost:3000', // Frontend URL
-    methods: ['GET', 'POST', 'DELETE', 'PATCH', 'PUT'],
+    methods: ['GET', 'POST', 'DELETE', 'PATCH', 'PUT', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
 }));
 server.disable("x-powered-by"); //Reduce fingerprinting
 server.use(cookieParser());
 server.use(express.urlencoded({ extended: false }));
 server.use(express.json());
-// app.use(bodyParser.json());
+server.use(bodyParser.json());
+server.options('*', cors());
+
 
 
 
@@ -55,6 +58,6 @@ mongoose.connect(process.env.URI,{
 //  CONFIGURE ROUTES
 server.use ("/", App);
 server.use ("/", userAuth );
-server.use("/user", userRoute);
+server.use("/", userRoute);
 server.use("/", postRoute);
-server.use("/", statusRoute);
+// server.use("/", statusRoute);

@@ -1,13 +1,15 @@
 import express from "express";
-import User from "../models/User.js";
 import auth from "../middleware/authMiddleware.js";
 import { getUserProfile } from "../controllers/usercontroller.js";
 const router = express.Router();
 
+const verifyFrontendToken = auth.verifyFrontendToken;
+
 
 
 // user profile route
-router.get('/:id', auth.authenticateToken, getUserProfile);
+// router.get('/user/:id', auth.authenticateToken, getUserProfile);
 
+router.get('/user/:id', getUserProfile);
 
 export default router;

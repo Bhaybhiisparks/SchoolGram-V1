@@ -17,7 +17,7 @@ const generateToken = (userId) => {
 
         return token;
     } catch (error) {
-        console.error('Error generating token:', error); // Log any errors that might occur
+        console.error('Error generating token:', error); 
         throw error; 
     }
 
@@ -63,8 +63,24 @@ const authenticateToken = async (req, res, next) => {
 };
 
 
+const verifyFrontendToken = (req, res, next) => {
+    const token = req.headers.authorization?.split(' ')[1]; // Assuming token is sent as "Bearer <token>"
+  
+    if (!token) {
+      return res.status(401).json({ message: 'Access denied. No token provided.' });
+    }
+  
+    try {
+      const decoded = jwt.verify(token, secretKey);
+      req.user = decoded; // Store decoded user info in req.user
+      next();
+    } catch (error) {
+      res.status(400).json({ message: 'Invalid token.' });
+    }
+  };
 
-export default { generateToken, authenticateToken };
+
+export default { generateToken, authenticateToken, verifyFrontendToken };
 
 
 

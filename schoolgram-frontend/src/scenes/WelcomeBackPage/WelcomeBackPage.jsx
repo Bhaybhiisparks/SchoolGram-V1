@@ -4,9 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { AuthContext } from '../../context/authContext';
-// import { useEffect, useState } from "react";
 // import { useDispatch } from "react-redux";
-// import { setLogin } from "state";
 // import Dropzone from "react-dropzone";
 
 
@@ -31,6 +29,12 @@ const WelcomeBackPage = () => {
     const navigate = useNavigate(); 
     const { setUser } = useContext(AuthContext); 
 
+    console.log('AuthContext:', useContext(AuthContext));
+
+    if (!setUser) {
+        console.error('setUser is not available in context');
+    }
+
     const initialValues = {
         email: '',
         password: '',
@@ -43,43 +47,52 @@ const WelcomeBackPage = () => {
 
     const onSubmit = async (values, { setSubmitting, setStatus }) => {
         try {
-            const response = await axios.post('http://localhost:5002/login', values);
-            setStatus({ message: response.data.message });
-            // debugging 
-            console.log( response.data.message);
-            console.log(response.data.user);
-            console.log(response.data.token);
-            
-            const { user, token } = response.data; 
-
-            // Save token to local storage 
-            localStorage.setItem('token', token);
-
-
-                if (user) {
-                setUser(user); 
-                console.log('Navigating to user profile:', `/user/${user._id}`); // Debugging
-                // Redirect to the profile page
-                navigate(`/user/${user._id}`); }
-            // } else {
-            //     // Redirect to a welcomepage if user data is not available
-            //     navigate('/'); 
-            // }
-        
-            setStatus({ message: response.data.message });
-
-            } catch (error) {
-                if (error.response) {
-                    // Server responded with a status other than 200 range
-                    setStatus({ message: error.response.data.message });
-                } else if (error.request) {
-                    // Request was made but no response received
-                    setStatus({ message: "No response from server. Please try again later." });
-                } else {
-                    // Something happened in setting up the request
-                    setStatus({ message: "Error: " + error.message });
+            const response = await axios.post('http://localhost:5002/login', values, {                       
+                headers: {
+                    'Content-Type': 'application/json',
                 }
+            });
+            console.log('API Response:', response); 
+            console.log(response.data.data.user);
+            console.log(response.data.data.token);
+            
+            setStatus({ message: response.data.message });
+
+            const { user, token } = response.data.data; 
+            if (token) {
+                console.log('Token received:', token);
+                // Save token to local storage 
+                localStorage.setItem('token', token);
+    
+                // Debugging: Log token from local storage
+                const storedToken = localStorage.getItem('token');
+                console.log('Token stored in local storage:', storedToken);
+            } else {
+                console.log('No token received in response data.');
             }
+
+            if (user) {
+            setUser(user); 
+            console.log('Navigating to user profile:', `/user/${user._id}`); // Debugging
+            // Redirect to the profile page
+            navigate(`/user/${user._id}`); 
+            } else {
+                // Redirect to a login if user data is not available
+                navigate('/login'); 
+            }
+
+        } catch (error) {
+            if (error.response) {
+                // Server responded with a status other than 200 range
+                setStatus({ message: error.response.data.message });
+            } else if (error.request) {
+                // Request was made but no response received
+                setStatus({ message: "No response from server. Please try again later." });
+            } else {
+                // Something happened in setting up the request
+                setStatus({ message: "Error: " + error.message });
+            }
+        }
             setSubmitting(false);
     };
 
@@ -209,59 +222,3 @@ export default WelcomeBackPage;
 
 
 
-
-
-
-
-{/* //       const loginSchema = yup.object().shape({
-//         email: yup.string().email("invalid email").required("required"),
-//         password: yup.string().required("required"),
-//       })
-
-//       const initialValuesLogin = {
-//         email: "",
-//         password: "",
-//       };
-
-
-
-//       const Form = () =>{
-
-//         const login = async (values, onSubmitProps) => {
-//             const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
-//               method: "POST",
-//               headers: { "Content-Type": "application/json" },
-//               body: JSON.stringify(values),
-//             });
-//             const loggedIn = await loggedInResponse.json();
-//             onSubmitProps.resetForm();
-//             if (loggedIn) {
-//               dispatch(
-//                 setLogin({
-//                   user: loggedIn.user,
-//                   token: loggedIn.token,
-//                 })
-//               );
-//               navigate("/home");
-//             }
-//           }; */}
-
-
-
-
-{/* //                 onSubmit = {validateForm} */}
-{/* //                 // initialValues = {loginPage ? initialValuesLogin : initialValuesRegister} */}
-{/* //                 // AuthenticateShcema = {loginPage? loginSchema: registrationSchema} */}
-{/* //                 > */}
-{/* //                 {({
-//                     values,
-//                     errors,
-//                     touched,
-//                     handleBlur,
-//                     handleChange,
-//                     handleSubmit,
-//                     setFieldValue,
-//                     resetForm,
-//                 }) =>(
-//                    
-//                 )} */}

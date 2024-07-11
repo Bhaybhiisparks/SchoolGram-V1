@@ -1,5 +1,5 @@
 import express from "express";
-import Validate from "../middleware/validate.js";
+import { Validate } from "../middleware/validate.js";
 import { check } from "express-validator";
 import { Register, Login } from "../controllers/authcontroller.js";
 import tokenMiddleware from "../middleware/authMiddleware.js";
@@ -10,6 +10,7 @@ import tokenMiddleware from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 const authenticateToken = tokenMiddleware.authenticateToken;
+const verifyFrontendToken = tokenMiddleware.verifyFrontendToken
 
 
 // route to verifytoken
@@ -19,6 +20,14 @@ router.get('/verify-token', authenticateToken,
     }
  ); 
 // res.json({ user: req.user });
+
+// route to frontendtoken
+router.get('/verify-frontend-token', verifyFrontendToken,
+    (req, res) => {
+        res.status(200).json({ user: req.user });
+    }
+ ); 
+
 
 
 // Register route -- POST request

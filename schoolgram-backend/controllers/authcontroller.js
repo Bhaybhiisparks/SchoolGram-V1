@@ -84,7 +84,7 @@ export async function Login(req, res) {
         // Token options
         const options = {
             expires: new Date(Date.now() + 3600000), // Expires in 2 hours
-            httpOnly: true, // The cookie is only accessible by the web server
+            httpOnly: true, 
             // secure: process.env.NODE_ENV === 'production', // Set secure only in production
             // sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax', // SameSite setting
         };
