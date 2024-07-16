@@ -1,69 +1,3 @@
-// import React from "react";
-// import ProfilePage from "../Homepage/ProfilePage";
-
-
-
-
-
-
-// //CUSTOM IMPORTS
-// // custom image imports
-// // import toggle from "./misc images/black and white/toggle-off.svg"
-// import  miniPicture from "../misc images/pictures/mini picture.jpg"
-// import exitIcon from "../misc images/black and white/exit-circle.svg"
-// import voiceRecord from "../misc images/black and white/microphone-2.svg"
-// import photoIcon from "../misc images/black and white/gallery.svg"
-// import moreIcon from "../misc images/black and white/more.svg"
-// import cameraIcon from "../misc images/black and white/home.svg"
-
-
-
-
-
-
-// const PostPage = () => {
-//     return( 
-//         <>
-//              <body>
-//                 <>
-//                     <div className="status-page-background">
-//                         <ProfilePage></ProfilePage>
-//                     </div>
-//                     <div className="status-page-body">
-//             <div className="status-page-top">
-//                  <img src = {miniPicture} className="status-profile-img" />
-//                  <h6 className="status-profile-name">Osagioduwa Faith</h6>
-//                  <p className="status-privacy">Public</p>
-//                  <img src = {exitIcon} className="status-exit-img" />
-//             </div>
-//             <textarea className="status-input" placeholder="What happened today?"></textarea>
-         
-
-//                         <footer className="status-page-footer">
-//                     <img src = {voiceRecord} className="status-record-status" />
-//                     <img src = {cameraIcon} className="status-status-camera" />
-//                     <img src = {photoIcon} className="status-upload-media" />
-//                     <a href="#" className="status-more-options" ><img src = {moreIcon} className="status-upload-media" /></a>
-//                     <button className="post-status">Post</button>
-
-//                     </footer>
-
-//                     </div>
-                    
-//                 </>
-
-
-//              </body>
-//         </>
- 
-//     )
-// }
-
-
-// export default PostPage;
-
-
-
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -93,7 +27,7 @@ const CreatePostForm = () => {
 
     const fetchPosts = async () => {
         try {
-            const response = await axios.get('http://localhost:5002/posts');
+            const response = await axios.get(`http://localhost:5002/${user._id}/newpost`);
             setPosts(response.data);
         } catch (error) {
             console.error('Error fetching posts:', error);
@@ -113,7 +47,7 @@ const CreatePostForm = () => {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5002/posts', formData);
+            const response = await axios.post(`http://localhost:5002/${user._id}/newpost`, formData);
             const newPost = response.data;
             setPosts([...posts, newPost]); // Update state to include the new post
             alert('Post created successfully!');
@@ -158,7 +92,7 @@ const CreatePostForm = () => {
         e.preventDefault();
         try {
             const { id, title, content } = editFormData;
-            await axios.patch(`http://localhost:5002/posts/${id}`, { title, content });
+            await axios.patch(`http://localhost:5002/${user._id}/newpost/${id}`, { title, content });
             fetchPosts(); // Refresh posts after edit
             alert('Post updated successfully!');
             setEditFormData({ id: '', title: '', content: '' });
@@ -170,8 +104,9 @@ const CreatePostForm = () => {
 
     const handleDeletePost = async id => {
         try {
-            await axios.delete(`http://localhost:5002/posts/${id}`);
-            setPosts(posts.filter(post => post._id !== id)); // Update state to remove the deleted post
+            await axios.delete(`http://localhost:5002/${user._id}/newpost/${id}`);
+            // Update state to remove the deleted post
+            setPosts(posts.filter(post => post._id !== id)); 
             alert('Post deleted successfully!');
         } catch (error) {
             console.error('Error deleting post:', error);

@@ -7,11 +7,11 @@ const StatusSchema = new mongoose.Schema(
             ref: 'User',
             required: true
         },
-        firstName: {
+        first_name: {
             type: String,
             required: true
         },
-        lastName: {
+        last_name: {
             type: String,
             required: true
         },

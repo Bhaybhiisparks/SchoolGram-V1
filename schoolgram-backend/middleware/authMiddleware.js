@@ -64,15 +64,15 @@ const authenticateToken = async (req, res, next) => {
 
 
 const verifyFrontendToken = (req, res, next) => {
-    const token = req.headers.authorization?.split(' ')[1]; // Assuming token is sent as "Bearer <token>"
+    const token = req.headers.authorization?.split(' ')[1]; 
   
     if (!token) {
       return res.status(401).json({ message: 'Access denied. No token provided.' });
     }
   
     try {
-      const decoded = jwt.verify(token, secretKey);
-      req.user = decoded; // Store decoded user info in req.user
+      const decoded = jwt.verify(token, JWT_SECRET);
+      req.user = decoded;
       next();
     } catch (error) {
       res.status(400).json({ message: 'Invalid token.' });
@@ -83,59 +83,6 @@ const verifyFrontendToken = (req, res, next) => {
 export default { generateToken, authenticateToken, verifyFrontendToken };
 
 
-
-
-// const authenticateToken = (req, res, next) => {
-//     const authHeader = req.headers['authorization'];
-//     const token = authHeader && authHeader.split(' ')[1]; // Extract token
-
-
-//     if (token == null) {
-//         {
-//             return res.status(401).json({ // No token, Unauthorized
-//                 status: 'failed',
-//                 message: 'No token provided',
-//             });
-//         }
-//     } 
-
-//     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-//         if (err) return res.sendStatus(403); // Invalid token, Forbidden
-//         req.user = user;
-//         next();
-//     });
-
-
-
-    // jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    //     if (err) {
-    //         console.error('Token verification error:', err);
-    //         return res.status(403).json({
-    //             status: 'failed',
-    //             message: 'Forbidden: Invalid token',
-    //         });
-    //     }
-    
-    //     // Assuming 'decoded' contains user information like 'userId' and 'email'
-    //     const { userId, email } = decoded;
-    
-    //     // Optionally,  fetch user details from the database based on 'userId' or use 'email' as needed
-    //     // Example:
-    //     // User.findById(userId, (err, user) => {
-    //     //     if (err || !user) {
-    //     //         return res.status(404).json({
-    //     //             status: 'failed',
-    //     //             message: 'User not found',
-    //     //         });
-    //     //     }
-    //     //     req.user = user;
-    //     //     next();
-    //     // });
-    
-    //     // Attach the user information to the request object
-    //     req.user = { userId, email };
-    //     next();
-    // });
     
 
 

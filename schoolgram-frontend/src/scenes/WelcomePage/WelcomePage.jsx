@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 //CUSTOM IMPORTS
 // custom image imports
-// import toggle from "./misc images/toggle-off.svg"
 import welcomeLogo from "../../logo images/schoolgramwelcomelogo.svg"
 
 
@@ -47,19 +46,19 @@ const WelcomePage = () => {
 
     return( 
         <>
-        <body>
+        {/* <body> */}
         <div className="welcomePage-div">
                 <img src ={welcomeLogo} className="welcome-logo" alt="welcome-logo"/>
                      <div className="welcomePage-buttons">
-                      <Link to = "/login">
+                      <Link to = "/login" className="custom-link">
                       <button className="login-button">Login</button>
                       </Link>
-                      <Link to = "/register">
+                      <Link to = "/register" className="custom-link">
                       <button className="create-new-account">Create new account</button>
                       </Link>
                     </div>
                 </div>
-        </body>
+        {/* </body> */}
         </>
 
  

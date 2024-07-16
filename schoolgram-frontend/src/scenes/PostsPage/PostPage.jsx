@@ -1,14 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import BottomPanel from '../../components/BottomPanel';
+
+import { AuthContext } from "../../context/authContext";
+
 
 const PostPage = () => {
     const [posts, setPosts] = useState([]);
+    const { user } = useContext(AuthContext);
 
     useEffect(() => {
         // Fetch posts data from your API
         const fetchPosts = async () => {
             try {
-                const response = await axios.get('http://localhost:5002/posts'); // Adjust URL to your API endpoint
+                const response = await axios.get(`http://localhost:5002/${user._id}/posts`);
                 setPosts(response.data);
             } catch (error) {
                 console.error('Error fetching posts:', error);
@@ -19,21 +25,44 @@ const PostPage = () => {
     }, []);
 
     return (
-        <div style={styles.container}>
+        <>
+         <div style={styles.container}>
             <h1 style={styles.heading}>My Posts</h1>
             {posts.length > 0 ? (
-                <ul style={styles.postList}>
+                <div>
+                    <ul style={styles.postList}>
                     {posts.map((post) => (
                         <li key={post.id} style={styles.postItem}>
                             <h2 style={styles.postTitle}>{post.title}</h2>
                             <p style={styles.postContent}>{post.content}</p>
                         </li>
                     ))}
-                </ul>
-            ) : (
-                <p>No posts available.</p>
+                    </ul>
+
+                    <div style={styles.buttonContainer}>
+                        <Link to={`/${user._id}/newpost`} className="custom-link" style={styles.buttonLeft}>
+                            <button>Create more posts</button>
+                        </Link>
+                        <Link to={`/${user._id}`} className="custom-link" style={styles.buttonRight}>
+                            <button>Go back</button>
+                        </Link>
+                    </div>
+                </div>
+            ) : ( <>
+                    <p>No posts available. Create one now</p> 
+                        <div> 
+                        <Link to = {`/${user._id}/newpost`} className="custom-link">
+                            <button>HERE</button>
+                        </Link>
+                        </div>
+                  </>
+               
             )}
+
+            <BottomPanel />
         </div>
+        </>
+       
     );
 };
 
@@ -57,10 +86,24 @@ const styles = {
     },
     postTitle: {
         margin: '0 0 10px',
+        fontSize: '18px',
+        fontWeight: 'bold',
     },
     postContent: {
         margin: '0',
+        fontSize: '16px',
     },
+    buttonContainer: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        marginTop: '20px',
+    },
+    buttonLeft: {
+        marginRight: 'auto',
+    },
+    buttonRight: {
+        marginLeft: 'auto',
+    }
 };
 
 export default PostPage;

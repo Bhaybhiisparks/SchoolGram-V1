@@ -208,7 +208,7 @@ const FormCreateAcct = () => {
                                  </button>
     
                                 <p className="redirect-to-login">Already have an account?  
-                                 <Link to = "/login">
+                                 <Link to = "/login"  className="custom-link">
                                      <a href="#" className="redirect-login">Log in!</a>
                                  </Link>
                                  </p>
@@ -249,7 +249,7 @@ const FormCreateAcct = () => {
         <div style={{ marginRight: '2vw' }}>
           {status.message}
         </div>
-        <Link to = "/login">
+        <Link to = "/login" className="custom-link">
         <button style={{
           fontSize: '1vw',
           color: '#FD8D83',

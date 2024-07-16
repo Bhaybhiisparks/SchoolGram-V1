@@ -1,18 +1,22 @@
 import express from "express";
-import { createStatus, updateStatus } from "../controllers/statuscontroller.js";
 import auth from "../middleware/authMiddleware.js"
+import { validatePostCreation } from "../middleware/validate.js";
+import {createOrUpdateStatus, getCurrentStatus} from "../controllers/statuscontroller.js"
 
 const router = express.Router();
 
 
-router.post('/status', 
+router.get('/:user/status',
+    getCurrentStatus);
+
+router.post('/:user/poststatus', 
     // auth.authenticateToken, 
-    createStatus);
+    createOrUpdateStatus);
 
 
-router.put('/status/:id', 
-    // auth.authenticateToken, 
-    updateStatus);
+// router.put('/status/:id', 
+//     // auth.authenticateToken, 
+//     updateStatus);
 
 
 

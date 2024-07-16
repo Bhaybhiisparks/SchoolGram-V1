@@ -19,6 +19,7 @@ import google from "../misc images/coloured/google icon.svg"
 import show from "../misc images/black and white/eye-slash.svg"
 import logo from "../../logo images/logo light.svg"
 import welcomeLogo from "../../logo images/schoolgramwelcomelogo.svg"
+import SearchHeader from "../../components/SearchHeader";
 
 
 
@@ -27,7 +28,7 @@ import welcomeLogo from "../../logo images/schoolgramwelcomelogo.svg"
 const WelcomeBackPage = () => {
 
     const navigate = useNavigate(); 
-    const { setUser } = useContext(AuthContext); 
+    const { user, setUser, loading, login } = useContext(AuthContext); 
 
     console.log('AuthContext:', useContext(AuthContext));
 
@@ -73,12 +74,13 @@ const WelcomeBackPage = () => {
 
             if (user) {
             setUser(user); 
-            console.log('Navigating to user profile:', `/user/${user._id}`); // Debugging
+            console.log('Navigating to user profile:', `/${user._id}`); // Debugging
             // Redirect to the profile page
-            navigate(`/user/${user._id}`); 
+            navigate(`/${user._id}`); 
             } else {
+                setStatus({ message: "User not found. Please create an account." });
                 // Redirect to a login if user data is not available
-                navigate('/login'); 
+                navigate('/register'); 
             }
 
         } catch (error) {
@@ -100,25 +102,23 @@ const WelcomeBackPage = () => {
 
     return ( 
         <>
-
-        {/* <header>
-            klh
-        </header> */}
+        {/* <SearchHeader /> */}
 
 
+                    <div className="welcome-back-body">
                         <div className="welcome-back-page-img">
                             <img src = {arrowLeft} alt="" className="go-back" />
                             <img src = {logo} alt="" className="logo" />
-                            <img src={welcomeLogo} alt="" className="welcomeLogo" />
+                            {/* <img src={welcomeLogo} alt="" className="welcomeLogo" /> */}
+                        </div>
+            
+                        <div className="welcome-back-div">
+                        <h4 className="welcome-back-name">Welcome Back!</h4>
+                        <h6 className="welcome-back-name2">Login to continue</h6>                
                         </div>
                     
-
-                            <div className="welcome-back-body" >
-                                <div className="welcome-back-div">
-                                <h4 className="welcome-back-name">Welcome Back!</h4>
-                                <h6 className="welcome-back-name2">Login to continue</h6>                
-                                </div>
-                            </div>
+                    </div>
+                       
 
             <Formik
                 initialValues={initialValues}
@@ -133,10 +133,10 @@ const WelcomeBackPage = () => {
                     <Form className="login-form" onSubmit={handleSubmit} >  
 
 
-                                            <label>Email:</label>
+                                            {/* <label>Email:</label> */}
                                              <Field 
                                              type="text" 
-                                             className="login-email" 
+                                             className="welcomebacklogin-email" 
                                              placeholder="Email" 
                                             //  label="Email"
                                              name = "email"
@@ -144,10 +144,10 @@ const WelcomeBackPage = () => {
                                              />
                                              <ErrorMessage name="email" component="div" className="error-message" />
 
-                                            <label>Password:</label>
+                                            {/* <label>Password:</label> */}
                                             <Field 
                                             type="password" 
-                                            className="login-password" 
+                                            className="welcomebacklogin-password" 
                                             placeholder="Password"
                                             // label="Password"
                                             name="password"
@@ -176,11 +176,15 @@ const WelcomeBackPage = () => {
                                                  <img src = {google} alt="" className="google-img" />
                                              </div>
                                         
-                                             <p className="dont-have-an-account">Don't have an account? 
-                                                     <Link to = "/register">
+                                             <div className="dont-have-an-account" >
+                                                <p>Don't have an account?</p>
+                                             <Link to = "/register" className="custom-link"> 
                                                       <a href="" className="create-new-acct-link">Create new account!</a>
                                                      </Link>
-                                                 </p>
+                                             </div>
+                                             
+                                                    
+                                                
 
 
 

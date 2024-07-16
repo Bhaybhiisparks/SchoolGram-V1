@@ -15,7 +15,7 @@ export async function getUserProfile(req, res) {
             });
         }
         // debugging 
-        console.log('User profile data:', user); // Log user data
+        console.log('User profile data:', user); 
         res.status(200).json({
             status: "success",
             data: user,

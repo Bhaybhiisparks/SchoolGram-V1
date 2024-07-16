@@ -10,6 +10,7 @@ import userAuth from "./routes/authroute.js";
 import userRoute from "./routes/userroute.js";
 import postRoute from "./routes/postroute.js";
 import statusRoute from "./routes/statusroute.js";
+import settingsRoute from "./routes/settingsroute.js"
 
 
 
@@ -27,6 +28,13 @@ console.log(`JWT SECRET: ${JWT_SECRET}`);
 //creating a server
 //change server to app later on
 const server = express();
+
+
+// Error handling middleware 
+// server.use((err, req, res, next) => {
+//     console.error("Unhandled error:", err); 
+//     res.status(500).json({ status: 'error', message: 'Internal Server Error' });
+// });
 
 
 // CONFIGURE HEADER INFORMATION
@@ -59,5 +67,6 @@ mongoose.connect(process.env.URI,{
 server.use ("/", App);
 server.use ("/", userAuth );
 server.use("/", userRoute);
-server.use("/", postRoute);
-// server.use("/", statusRoute);
+server.use("/post", postRoute);
+server.use("/", statusRoute);
+server.use("/", settingsRoute)

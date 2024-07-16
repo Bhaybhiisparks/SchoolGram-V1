@@ -1,5 +1,6 @@
-import React from "react";
-
+import React, {useContext} from "react";
+import { Link } from 'react-router-dom';
+import { AuthContext } from "../context/authContext";
 
 
 //CUSTOM IMPORTS
@@ -17,28 +18,46 @@ import chatIcon from "../scenes/misc images/coloured/messages.svg"
 
 
 const BottomPanel = () => {
+    const { user } = useContext(AuthContext);
+    
+
     return( 
         <>
               <footer className="bottom-panel">
                     <div className="home-box">
-                        <img src = {homeIcon} alt="" className="home-img" />
-                        <p className="home-name">Home</p>
+                        <Link to = {`/post/allposts`} className="custom-link">
+                            <img src = {homeIcon} alt="" className="home-img" />
+                            <p className="home-name">Home</p>
+                        </Link>
+                        
                     </div>
                     <div className="profile-box">
-                        <img src = {profile} alt="" className="profile-tag" />
-                        <p className="profile-name">Profile</p>
+                        <Link to = {`/${user._id}`} className="custom-link">
+                            <img src = {profile} alt="" className="profile-tag" />
+                            <p className="profile-name">Profile</p>
+                        </Link>
+                        
                     </div>
                     <div className="status-box">
-                        <img src = {statusIcon} alt="" className="status-img" />
-                        <p className="profile-name">Status</p>
+                        <Link to = {`/${user._id}/status`} className="custom-link">
+                            <img src = {statusIcon} alt="" className="status-img" />
+                            <p className="profile-name">Status</p>
+                        </Link>
+                        
                     </div>
                     <div className="communities-box">
-                        <img src = {communitiesIcon} alt="" className="communities-img" />
-                        <p className="communities-name">Communities</p>
+                        <Link to = "/communities" className="custom-link">
+                            <img src = {communitiesIcon} alt="" className="communities-img" />
+                            <p className="communities-name">Communities</p>
+                        </Link>
+                        
                     </div>
-                    <div className="chat-box">
-                        <img src = {chatIcon} alt="" className="chat-img" />
-                        <p className="chat-name">Chat</p>
+                    <div className="chat">
+                        <Link to = {`/${user._id}/chat`} className="custom-link">
+                            <img src = {chatIcon} alt="" className="chat-img" />
+                            <p className="chat-name">Chat</p>
+                        </Link>
+                       
                     </div>
                 </footer>
         </>

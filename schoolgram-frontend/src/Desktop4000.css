@@ -217,6 +217,102 @@
   }
 
 
+      /****************** HOMEPAGE *********************/
+      .homepagecontainer {
+        padding: 15px;
+        max-width: 1368px;
+        margin: 0 auto;
+        font-family: Arial, sans-serif; 
+        background-color: #f8f8f8;
+    }
+    
+    
+    .homepageheading {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    
+    .homepagepostList {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+     
+    .homepagepostItem {
+        border-bottom: 1px solid #ccc;
+        padding: 15px;
+        background: #fff;
+        margin-bottom: 20px;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .homepageprofile-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .homepageprofile-header img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+    
+    .homepageprofile-header .homepageuser-info {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .homepageprofile-header .homepageuser-info h1 {
+        font-size: 17px;
+        margin: 0;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    .homepageprofile-header .homepageuser-info p {
+        margin: 0;
+        color: #777;
+        font-size: 14px;
+    }
+    
+    .homepagepost-content {
+        font-size: 15px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+    
+    .homepagepost-image {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .homepagepost-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .homepagepost-actions button {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .homepagepost-actions img {
+        width: 24px;
+        height: 24px;
+    }
+
+
+
      /*************** CHAT-OR-GROUP *****************/
      .chat-or-group {
       display: flex;
@@ -341,7 +437,7 @@
 
 
 
-/********************** HOMEPAGE ***************************/
+/********************** PROFILEPAGE ***************************/
 
 /* 
    .profile-body{
@@ -352,6 +448,7 @@
       background-color: pink;
       width: 100%;
       height: 15rem;
+      position: relative;
       /* padding: 3rem 0; */
   }
 
@@ -361,6 +458,13 @@
     /* cursor: pointer; */
     /* border: 1px solid red; */
   }
+
+  .profile-top .homepage-profile-vertical-menu {
+    position: absolute;
+    top: 10px; 
+    right: 5px; 
+    z-index: 10; 
+}  
 
   .profile-body .mini-profile-picture{
       height: 5rem;
@@ -372,6 +476,7 @@
       margin-top: -3.8rem;
       margin-bottom: 1rem;
       cursor: pointer;
+      position: relative;
   }
 
   .profile-body .mini-profile-picture img{
@@ -530,15 +635,23 @@
 /************** BOTTOM PANEL *********************/
 .bottom-panel{
   /* border: 2px solid red; */
-  padding: 0 .4rem;
   display: flex;
   justify-content: space-between;
-  height: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  text-align: center;
+  z-index: 1000; 
 }
 
 .bottom-panel div{
   font-size: .6rem;
   font-weight: 500;
+  padding-right: 4vw;
   /* border: 1px solid red; */
 }
 
@@ -555,12 +668,12 @@
   border-radius: 5px;
   box-shadow: 3px 3px 3px #FD8D83;
   width: 40%;
-  margin: 15rem auto;
+  margin-top: 10vh;
+  margin-left: 50vh;
   padding: 2rem;
-  /* text-align: center; */
+  position: fixed;
   display: flex;
   justify-content: space-around;
-  /* scroll-behavior: smooth; */
 }
 
 .welcomePage-div img.welcome-logo{
@@ -713,8 +826,7 @@ h6.status-profile-name{
 
 
 /********************* WELCOMEBACKPAGE ********************/
-
-
+/*  
 .welcome-back-page-img{
   display: flex;
   flex-flow: column;
@@ -722,11 +834,10 @@ h6.status-profile-name{
   margin-top: 12rem;
   gap: 9rem;
   float: left;
-  /* border: 1px solid red; */
 }
 
 .welcome-back-page-img img{
-  /* border: 1px solid red; */
+
   border-radius: 50%;
   width: 5rem;
   height: 4rem;
@@ -737,15 +848,11 @@ h6.status-profile-name{
 }
 
 
-/* .welcome-back-page-img img.welcomeLogo{ */
-/* } */
-
 .welcome-back-body{
   padding: 3rem;
   margin: 0 auto;
   text-align: center;
   width: 50%;
-  /* border: 1px solid green; */
   float: right;
   margin: 6rem 4rem;
   position: relative;
@@ -764,7 +871,6 @@ h6.status-profile-name{
 
 .login-form{
   padding: 2rem 0;
-  /* border: 1px solid pink; */
 }
 
 .login-form input{
@@ -783,7 +889,6 @@ h6.status-profile-name{
   width: 1.5rem;
   height: 1.5rem;
   position: absolute;
-  /* padding: 1rem; */
   top: 40%;
   right: 10%;
   transform: translate(0%, -35%);
@@ -821,7 +926,6 @@ h6.status-profile-name{
   margin: 0 auto;
   padding: 2rem;
   margin-top: .8rem;
-  /* border: 1px solid green; */
 }
 
 .welcome-back-buttons button.login-button, .welcome-back-buttons button.login-with-google{
@@ -865,7 +969,17 @@ img.google-img{
   text-decoration: none;
   font-weight: 500;
 }
+ */
 
 
-   
-    }
+
+
+/************* MISCELLANEOUS STYLING  ***************/
+.custom-link {
+  text-decoration: none; 
+}
+
+
+
+
+}

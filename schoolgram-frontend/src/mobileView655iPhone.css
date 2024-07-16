@@ -189,6 +189,102 @@
     }
 
 
+    /****************** HOMEPAGE *********************/
+    .homepagecontainer {
+        padding: 15px;
+        max-width: 1368px;
+        margin: 0 auto;
+        font-family: Arial, sans-serif; 
+        background-color: #f8f8f8;
+    }
+    
+    
+    .homepageheading {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    
+    .homepagepostList {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+     
+    .homepagepostItem {
+        border-bottom: 1px solid #ccc;
+        padding: 15px;
+        background: #fff;
+        margin-bottom: 20px;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .homepageprofile-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .homepageprofile-header img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+    
+    .homepageprofile-header .homepageuser-info {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .homepageprofile-header .homepageuser-info h1 {
+        font-size: 17px;
+        margin: 0;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    .homepageprofile-header .homepageuser-info p {
+        margin: 0;
+        color: #777;
+        font-size: 14px;
+    }
+    
+    .homepagepost-content {
+        font-size: 15px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+    
+    .homepagepost-image {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .homepagepost-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .homepagepost-actions button {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .homepagepost-actions img {
+        width: 24px;
+        height: 24px;
+    }
+
+
+
 
 /******************** CHATS PAGE ***************************/
 .chat-body{
@@ -378,19 +474,27 @@
 
 
 
-    /************************ HOMEPAGE *************************************/
+    /************************ PROFILEPAGE *************************************/
     /* .profile-body{
         position: relative;
     } */
 
     .profile-top{
+        position: relative;
         height: 3rem;
         width: 25rem;
     }
 
-    .profile-top img{
+    .profile-top img.homepage-profile-img{
         height:3rem;
         width: 25rem;
+    }
+
+    .profile-top img.homepage-profile-vertical-menu{
+        position: absolute;
+        top: 10px; 
+        right: 5px; 
+        z-index: 10;
     }
 
     .profile-body .mini-profile-picture{
@@ -403,6 +507,7 @@
         margin-top: -1rem;
         margin-bottom: 1rem;
         cursor: pointer;
+        position: relative;
     }
   
     .profile-body .mini-profile-picture img{
@@ -561,15 +666,23 @@
     /********************** BOTTOMPANEL ************/
     .bottom-panel{
         /* border: 2px solid red; */
-        padding: 0 .4rem;
         display: flex;
         justify-content: space-between;
-        height: 1rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f8f9fa;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        text-align: center;
+        z-index: 1000; 
     }
 
     .bottom-panel div{
         font-size: .6rem;
         font-weight: 500;
+        padding-right: 4vw;
         /* border: 1px solid red; */
     }
 
@@ -719,9 +832,9 @@
     }
 
 
-    /*********** WELCOMEBACKPAGE *******************/
+    /*********** WELCOMEBACKPAGE OR LOGIN PAGE *******************/
 
-    .welcome-back-page-img{
+    /* .welcome-back-page-img{
         display: flex;
         flex-flow: column;
         margin-left: 3rem;
@@ -730,7 +843,6 @@
     }
 
     .welcome-back-page-img img{
-        /* border: 1px solid red; */
         border-radius: 50%;
         width: 2rem;
         height: 2rem;
@@ -742,7 +854,6 @@
 
     .welcome-back-page-img img.go-back{
         cursor: pointer;
-        /* border: 1px solid red; */
     }
 
     .welcome-back-body{
@@ -758,7 +869,6 @@
 
     .login-form{
         padding: 1.3rem 0;
-        /* border: 1px solid pink; */
         margin-top: .2rem;
     }
 
@@ -780,7 +890,6 @@
         position: absolute;
         top: 25%;
         right: 15%;
-        /* transform: translate(30% 90%); */
         cursor: pointer;
     }
     
@@ -853,7 +962,7 @@
         text-decoration: none;
         font-weight: 500;
         cursor: pointer;
-    }
+    } */
 
 
     /********** PRIVATECHAT ************/
@@ -900,6 +1009,12 @@
 
         display: none;
     }
+
+
+    /************* MISCELLANEOUS STYLING  ***************/
+.custom-link {
+    text-decoration: none; 
+  }
 
   }
 

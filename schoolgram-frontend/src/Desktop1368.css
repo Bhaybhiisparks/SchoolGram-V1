@@ -24,7 +24,6 @@
         display: block;
         height: 100%;
         width: auto;
-       
     }
 
     .space-head{
@@ -169,6 +168,103 @@
         font-weight: 900;
     }
 
+
+
+    /****************** HOMEPAGE *********************/
+    .homepagecontainer {
+        padding: 15px;
+        max-width: 1368px;
+        margin: 0 auto;
+        font-family: Arial, sans-serif; 
+        background-color: #f8f8f8;
+    }
+    
+    
+    .homepageheading {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    
+    .homepagepostList {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+     
+    .homepagepostItem {
+        border-bottom: 1px solid #ccc;
+        padding: 15px;
+        background: #fff;
+        margin-bottom: 20px;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .homepageprofile-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .homepageprofile-header img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+    
+    .homepageprofile-header .homepageuser-info {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .homepageprofile-header .homepageuser-info h1 {
+        font-size: 17px;
+        margin: 0;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    .homepageprofile-header .homepageuser-info p {
+        margin: 0;
+        color: #777;
+        font-size: 14px;
+    }
+    
+    .homepagepost-content {
+        font-size: 15px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+    
+    .homepagepost-image {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .homepagepost-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .homepagepost-actions button {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .homepagepost-actions img {
+        width: 24px;
+        height: 24px;
+    }
+
+    
 
 
 /******************** CHATS PAGE ***************************/
@@ -343,14 +439,26 @@
 
 
 
-    /************************ HOMEPAGE *************************************/
+    /************************ PROFILEPAGE *************************************/
     /* .profile-body{
         position: relative;
     } */
 
     .profile-top{
-        border: 2px solid cyan;
+        /* border: 2px solid cyan; */
         height: 2.9rem;
+        position: relative;
+    }
+
+    .profile-top .homepage-profile-vertical-menu {
+        position: absolute;
+        top: 10px; 
+        right: 10px; 
+        z-index: 10; 
+    }    
+
+    .profile-top .homepage-profile-img{
+        position: relative;
     }
 
     .profile-body .picture{
@@ -361,9 +469,9 @@
         justify-self: center; */
     }
 
-    .profile-bottom {
-        border: 1px solid green;
-    }
+    /* .profile-bottom {
+        /* border: 1px solid green; 
+    } */
 
     .profile-content{
         border-bottom: 1px solid black;
@@ -473,15 +581,24 @@
 
     /********************** BOTTOMPANEL ************/
     .bottom-panel{
-        border: 2px solid red;
+        /* border: 2px solid red; */
         display: flex;
         justify-content: space-between;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f8f9fa;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        text-align: center;
+        z-index: 1000; 
+        
     }
 
     .bottom-panel div{
-        border: 1px solid cyan;
-        /* margin-top: -.6rem; */
-        padding: .2rem .8rem;
+        /* border: 1px solid cyan; */
+        padding-right: 4vw;
         font-size: .6rem;
         font-weight: 500;
     }
@@ -489,6 +606,19 @@
 
 
     /************* WELCOMEPAGE ***********************/
+    .welcomePage-div{
+        border: 1px solid green;
+        border-radius: 5px;
+        box-shadow: 3px 3px 3px #FD8D83;
+        width: 40%;
+        margin-top: 10vh;
+        margin-left: 25vh;
+        padding: 2rem;
+        position: fixed;
+        display: flex;
+        justify-content: space-around;
+      }
+
     img.welcome-logo{
         height: 50%;
         width: 50%;
@@ -525,7 +655,10 @@
         background-color: #FD8D83;
     }
 
-    /********* STATUSPAGE ***********/
+
+    
+
+    /************** STATUSPAGE *****************/
     .status-page-background{
         filter: blur(3px);
         pointer-events: none;
@@ -620,52 +753,51 @@
     /*********** WELCOMEBACKPAGE *******************/
 
     .welcome-back-body{
-        background-color: white;
-        height: 100%;
-        width: 100%;
-        padding: 3rem 0;
+        /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
+        max-width: 400px; 
+        text-align: left;
+        padding: 1.5rem;
+
     }
 
     .welcome-back-div{
-        border-radius: .5rem;
-        padding: 0 1.5rem;
-        height: auto;
-        width: 50%;
-        margin: 0 auto;
-        text-align: center;
-        margin-top: 7rem;
+        text-align: left;
         box-shadow: 2px 3px 6px white;
-        background-color: #FCEFE7;
     }
 
     .welcome-back-name{
         font-size: 2rem;
-        margin-top: 2rem;
-        padding: 1rem 2rem;
-        text-align: left;
-        padding: 0 .2rem;
+        margin-bottom: 0.5rem;
     }
 
     .welcome-back-name2{
-        text-align: left;
         font-size: 1rem;
     }
 
     .login-form{
-        background-color: white;
-        padding: 3rem 0;
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        /* border: 1px solid red; */
+        padding: 3rem 1.5rem;
+        position: relative;
         box-shadow: 2px 2px 2px solid #FCEFE7;
     }
 
+    .welcomebacklogin-password .welcomebacklogin-email{
+        border: 1px solid green;
+    }
+
     .login-form input{
-        border: 1px solid transparent;
-        border-radius: .5rem;
-        padding: 2rem;
-        margin-top: 1rem;
-        margin-left: 1rem;
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
         
         outline: none;
-        width: 80%;
+        width: 100%;
         height: auto;
         display: flex;
         justify-content: space-between;
@@ -674,47 +806,40 @@
 
     img.hideNsee-password{
         position: absolute;
-        top: 60%;
-        right: 33%;
-        transform: translateY(50%);
+        bottom: 65%;
+        right: 40px;
+        cursor: pointer;
+        transform: translateY(-45%);
     }
 
     .rememberNforget{
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         gap: 17rem;
     }
 
     .remember-box{
         display: flex;
-        align-items: center;
+        align-items: baseline;
         justify-content: space-between;
-        gap: .5rem;
     }
 
     .remember-box input{
         width: 1.8rem;
-        height: 1.8rem;
-        margin-top: .1rem;
+        cursor: pointer;
     }
 
     .welcome-back-buttons{
-        padding: .5rem 4rem;
+        display: flex;
+        flex-direction: column;
         text-align: center;
-        
     }
 
     .welcome-back-buttons button{
-        padding: 1.5rem;
-        width: 50%;
-        margin-left: 7rem;
-        margin-bottom: 2rem;
-        display: flex;
-        gap: 2rem;
-        flex-flow: column;
-        justify-content: space-between;
+        padding: 0.75rem;
+        margin: 1rem 10rem;
         border: 1px solid black;
-        border-radius: .5rem;
+        border-radius: 4px;
         box-shadow: 1px 1px 1px #FCEFE7;
         outline: none;
         background-color: white;
@@ -722,24 +847,27 @@
         cursor: pointer;
         font-size: 1.2rem;
         text-align: center;
-        width: 80%;
     }
 
     .welcome-back-buttons button:hover{
         color: white;
         background-color: #FD8D83;
         cursor: pointer;
+        border: 1px solid transparent;
 
     }
 
     img.google-img{
         position: absolute;
-        bottom: 6%;
+        bottom: 20%;
         left: 35%;
         transform: translateX(30%);
     }
   
     .dont-have-an-account{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         font-weight: 500;
     }
 
@@ -788,4 +916,8 @@
 
         display: none;
     }
+
+    .custom-link {
+        text-decoration: none; 
+      }
   

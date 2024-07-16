@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useEffect, useState, useContext} from "react";
+import { AuthContext } from "../../context/authContext";
 
 
 
@@ -21,7 +22,26 @@ import deleteAccount from "../misc images/black and white/profile 1.svg"
 
 
 
-const AccountsPanel = () => {
+const AccountsPanel = ({userId}) => {
+
+    const [settings, setSettings] = useState(null);
+    const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const response = await fetch(`/${user._id}/accountspanel`);
+        const data = await response.json();
+        setSettings(data);
+      } catch (error) {
+        console.error('Error fetching settings page:', error);
+      }
+    };
+
+    fetchSettings();
+  }, [userId]);
+
+
     return( 
         // <>
             <div className="chat-body">
